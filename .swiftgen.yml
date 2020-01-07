@@ -1,0 +1,13 @@
+strings:
+  inputs: SwiftUIArchitecture/Source/Assets/Base.lproj
+  filter: .+\.strings$
+  outputs:
+    - templateName: structured-swift4
+      output: SwiftUIArchitecture/Source/Vendor/SwiftGen/strings.swift
+xcassets:
+  inputs:
+    - SwiftUIArchitecture/Source/Assets/Assets.xcassets
+    - SwiftUIArchitecture/Source/Assets/Preview.xcassets
+  outputs:
+    - templateName: swift4
+      output: SwiftUIArchitecture/Source/Vendor/SwiftGen/assets-images.swift
