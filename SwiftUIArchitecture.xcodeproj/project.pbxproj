@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4267D1623C5E60800632BA3 /* Credentials.enc in Resources */ = {isa = PBXBuildFile; fileRef = D4267D1523C5E60800632BA3 /* Credentials.enc */; };
 		D49D200E23C4FC9C00483FDC /* RoutePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49D200D23C4FC9C00483FDC /* RoutePath.swift */; };
 		D49D201023C4FD1F00483FDC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49D200F23C4FD1F00483FDC /* OnboardingView.swift */; };
 		D49D201223C4FF6100483FDC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49D201123C4FF6100483FDC /* AppCoordinator.swift */; };
@@ -23,6 +24,13 @@
 		D4A43A8223C5CCCD0052821F /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A43A8123C5CCCD0052821F /* FeedPresenter.swift */; };
 		D4A43A8423C5CCD50052821F /* FeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A43A8323C5CCD50052821F /* FeedInteractor.swift */; };
 		D4A43A8623C5D1E10052821F /* SwiftGen in Resources */ = {isa = PBXBuildFile; fileRef = D4A43A8523C5D1E10052821F /* SwiftGen */; };
+		D4A43A8C23C5DD970052821F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A43A8B23C5DD970052821F /* Configuration.swift */; };
+		D4A43A8E23C5DDA00052821F /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A43A8D23C5DDA00052821F /* Credentials.swift */; };
+		D4A43A9123C5DE4D0052821F /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D4A43A9023C5DE4D0052821F /* CryptoSwift */; };
+		D4A43A9723C5DF5D0052821F /* Credentials.enc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A43A9623C5DF5D0052821F /* Credentials.enc.swift */; };
+		D4A43A9A23C5E1490052821F /* Obfuscator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A43A9923C5E1490052821F /* Obfuscator.swift */; };
+		D4A43A9C23C5E3E40052821F /* Foundation+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A43A9B23C5E3E30052821F /* Foundation+String.swift */; };
+		D4A43A9E23C5E4460052821F /* Foundation+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A43A9D23C5E4460052821F /* Foundation+Dictionary.swift */; };
 		D4DD899123C4AA2200179696 /* SwiftUIArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DD899023C4AA2200179696 /* SwiftUIArchitectureTests.swift */; };
 		D4DD899C23C4AA2200179696 /* SwiftUIArchitectureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DD899B23C4AA2200179696 /* SwiftUIArchitectureUITests.swift */; };
 		D4DD89AB23C4AC4600179696 /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = D4DD89AA23C4AC4600179696 /* Store */; };
@@ -54,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D4267D1523C5E60800632BA3 /* Credentials.enc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Credentials.enc; sourceTree = "<group>"; };
 		D49D200D23C4FC9C00483FDC /* RoutePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePath.swift; sourceTree = "<group>"; };
 		D49D200F23C4FD1F00483FDC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		D49D201123C4FF6100483FDC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -70,6 +79,14 @@
 		D4A43A8123C5CCCD0052821F /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		D4A43A8323C5CCD50052821F /* FeedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInteractor.swift; sourceTree = "<group>"; };
 		D4A43A8523C5D1E10052821F /* SwiftGen */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftGen; sourceTree = "<group>"; };
+		D4A43A8823C5DD610052821F /* Credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Credentials.plist; sourceTree = "<group>"; };
+		D4A43A8B23C5DD970052821F /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		D4A43A8D23C5DDA00052821F /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		D4A43A9223C5DE930052821F /* Credentials.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Credentials.xcconfig; sourceTree = "<group>"; };
+		D4A43A9623C5DF5D0052821F /* Credentials.enc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.enc.swift; sourceTree = "<group>"; };
+		D4A43A9923C5E1490052821F /* Obfuscator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obfuscator.swift; sourceTree = "<group>"; };
+		D4A43A9B23C5E3E30052821F /* Foundation+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+String.swift"; sourceTree = "<group>"; };
+		D4A43A9D23C5E4460052821F /* Foundation+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Dictionary.swift"; sourceTree = "<group>"; };
 		D4DD897623C4AA1F00179696 /* SwiftUIArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DD898723C4AA2100179696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4DD898C23C4AA2200179696 /* SwiftUIArchitectureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIArchitectureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +111,7 @@
 			files = (
 				D4DD89AB23C4AC4600179696 /* Store in Frameworks */,
 				D4DD89AE23C4AC6500179696 /* SwiftUIRouter in Frameworks */,
+				D4A43A9123C5DE4D0052821F /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +180,25 @@
 			path = Feed;
 			sourceTree = "<group>";
 		};
+		D4A43A8A23C5DD8A0052821F /* Credentials */ = {
+			isa = PBXGroup;
+			children = (
+				D4A43A8B23C5DD970052821F /* Configuration.swift */,
+				D4A43A8D23C5DDA00052821F /* Credentials.swift */,
+				D4A43A9923C5E1490052821F /* Obfuscator.swift */,
+			);
+			path = Credentials;
+			sourceTree = "<group>";
+		};
+		D4A43A9823C5E0690052821F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D4A43A9B23C5E3E30052821F /* Foundation+String.swift */,
+				D4A43A9D23C5E4460052821F /* Foundation+Dictionary.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D4DD896D23C4AA1F00179696 = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +224,10 @@
 			children = (
 				D4DD89B123C4AD0A00179696 /* Source */,
 				D4DD898723C4AA2100179696 /* Info.plist */,
+				D4A43A8823C5DD610052821F /* Credentials.plist */,
+				D4A43A9623C5DF5D0052821F /* Credentials.enc.swift */,
+				D4A43A9223C5DE930052821F /* Credentials.xcconfig */,
+				D4267D1523C5E60800632BA3 /* Credentials.enc */,
 			);
 			path = SwiftUIArchitecture;
 			sourceTree = "<group>";
@@ -214,6 +255,7 @@
 			children = (
 				D4DD89B323C4AD0A00179696 /* Assets */,
 				D4DD89C223C4AD8000179696 /* Domain */,
+				D4A43A9823C5E0690052821F /* Extensions */,
 				D4DD89C123C4AD7900179696 /* Router */,
 				D4DD89C423C4ADAD00179696 /* Redux */,
 				D4DD89CB23C4C2C000179696 /* Vendor */,
@@ -247,6 +289,7 @@
 		D4DD89C223C4AD8000179696 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				D4A43A8A23C5DD8A0052821F /* Credentials */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -310,6 +353,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4DD89A023C4AA2200179696 /* Build configuration list for PBXNativeTarget "SwiftUIArchitecture" */;
 			buildPhases = (
+				D4A43A8723C5DCED0052821F /* Encrypt Credentials */,
 				D4DD89C823C4B96A00179696 /* Prepare Assets */,
 				D4DD89C723C4B37600179696 /* Check Sources */,
 				D4DD897223C4AA1F00179696 /* Sources */,
@@ -324,6 +368,7 @@
 			packageProductDependencies = (
 				D4DD89AA23C4AC4600179696 /* Store */,
 				D4DD89AD23C4AC6500179696 /* SwiftUIRouter */,
+				D4A43A9023C5DE4D0052821F /* CryptoSwift */,
 			);
 			productName = SwiftUIArchitecture;
 			productReference = D4DD897623C4AA1F00179696 /* SwiftUIArchitecture.app */;
@@ -400,6 +445,7 @@
 			packageReferences = (
 				D4DD89A923C4AC4600179696 /* XCRemoteSwiftPackageReference "Store" */,
 				D4DD89AC23C4AC6500179696 /* XCRemoteSwiftPackageReference "SwiftUIRouter" */,
+				D4A43A8F23C5DE4D0052821F /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 			);
 			productRefGroup = D4DD897723C4AA1F00179696 /* Products */;
 			projectDirPath = "";
@@ -419,6 +465,7 @@
 			files = (
 				D4DD89CA23C4C2A000179696 /* Preview.xcassets in Resources */,
 				D4DD89BE23C4AD0A00179696 /* LaunchScreen.storyboard in Resources */,
+				D4267D1623C5E60800632BA3 /* Credentials.enc in Resources */,
 				D4DD89BC23C4AD0A00179696 /* Assets.xcassets in Resources */,
 				D4A43A8623C5D1E10052821F /* SwiftGen in Resources */,
 			);
@@ -441,6 +488,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		D4A43A8723C5DCED0052821F /* Encrypt Credentials */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Encrypt Credentials";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FILES=\"Credentials\"\n\nfor FILE in $FILES\ndo\nif test -s ./SwiftUIArchitecture/$FILE.plist\nthen\necho \"Encrypting $FILE.plist\"\nopenssl enc -aes-128-cbc -md md5 -nosalt -iv 0000000000000000 -pass pass:${CREDENTIALS_KEY} -in ./SwiftUIArchitecture/$FILE.plist -out ./SwiftUIArchitecture/$FILE.enc\nelse\necho \"No $FILE.plist found, skipping new encryption\"\nfi\ndone\n";
+		};
 		D4DD89C723C4B37600179696 /* Check Sources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -487,15 +552,21 @@
 				D49D201723C5004700483FDC /* AppState.swift in Sources */,
 				D49D200E23C4FC9C00483FDC /* RoutePath.swift in Sources */,
 				D4A43A7523C5C7F70052821F /* HomeView.swift in Sources */,
+				D4A43A8E23C5DDA00052821F /* Credentials.swift in Sources */,
 				D49D201923C500FD00483FDC /* AppAction.swift in Sources */,
+				D4A43A9E23C5E4460052821F /* Foundation+Dictionary.swift in Sources */,
 				D4A43A7D23C5CADE0052821F /* OnboardingInteractor.swift in Sources */,
 				D49D201023C4FD1F00483FDC /* OnboardingView.swift in Sources */,
+				D4A43A8C23C5DD970052821F /* Configuration.swift in Sources */,
 				D4DD89D523C4DAF900179696 /* RootView.swift in Sources */,
 				D4A43A8023C5CCC30052821F /* FeedView.swift in Sources */,
 				D49D202023C5041C00483FDC /* RouteAction.swift in Sources */,
+				D4A43A9C23C5E3E40052821F /* Foundation+String.swift in Sources */,
 				D4A43A8223C5CCCD0052821F /* FeedPresenter.swift in Sources */,
+				D4A43A9723C5DF5D0052821F /* Credentials.enc.swift in Sources */,
 				D4F7ACBC23C529240039A840 /* RouterView.swift in Sources */,
 				D49D201E23C5030C00483FDC /* RouteState.swift in Sources */,
+				D4A43A9A23C5E1490052821F /* Obfuscator.swift in Sources */,
 				D4DD89BB23C4AD0A00179696 /* AppDelegate.swift in Sources */,
 				D49D201223C4FF6100483FDC /* AppCoordinator.swift in Sources */,
 				D4DD89C023C4AD0A00179696 /* SceneDelegate.swift in Sources */,
@@ -665,6 +736,7 @@
 		};
 		D4DD89A123C4AA2200179696 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4A43A9223C5DE930052821F /* Credentials.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -684,6 +756,7 @@
 		};
 		D4DD89A223C4AA2200179696 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4A43A9223C5DE930052821F /* Credentials.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -823,6 +896,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D4A43A8F23C5DE4D0052821F /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
 		D4DD89A923C4AC4600179696 /* XCRemoteSwiftPackageReference "Store" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alexdrone/Store.git";
@@ -842,6 +923,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D4A43A9023C5DE4D0052821F /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4A43A8F23C5DE4D0052821F /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
+		};
 		D4DD89AA23C4AC4600179696 /* Store */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D4DD89A923C4AC4600179696 /* XCRemoteSwiftPackageReference "Store" */;

@@ -71,6 +71,10 @@ fastlane/test_output
 
 # Credentials
 
+Credentials.plist
+Credentials.enc.swift
+Credentials.xcconfig
+
 # git
 .gitattributes
 
