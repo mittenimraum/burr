@@ -11,6 +11,24 @@
         }
       },
       {
+        "package": "OhhAuth",
+        "repositoryURL": "https://github.com/mw99/OhhAuth",
+        "state": {
+          "branch": null,
+          "revision": "2b14d3c8087ea9a40b731cfa1bdb0f6f38509448",
+          "version": "1.1.0"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "b3e888b4972d9bc76495dd74d30a8c7fad4b9395",
+          "version": "5.0.1"
+        }
+      },
+      {
         "package": "Store",
         "repositoryURL": "https://github.com/alexdrone/Store.git",
         "state": {
@@ -35,6 +53,15 @@
           "branch": null,
           "revision": "f30ba5cf9895b7f9ce5bada3114251a45838abd1",
           "version": "0.1.1"
+        }
+      },
+      {
+        "package": "TinyNetworking",
+        "repositoryURL": "https://github.com/jdisho/TinyNetworking",
+        "state": {
+          "branch": null,
+          "revision": "3c11cf675b668a464f5d1652b80a96f02ffff835",
+          "version": "4.0.0"
         }
       }
     ]

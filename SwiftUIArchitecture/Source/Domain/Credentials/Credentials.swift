@@ -24,11 +24,23 @@ class Credentials: Configuration {
         return .AES128(key)
     }
 
+    var twitterBaseURL: String {
+        return stringForKey("Twitter.BaseURL")
+    }
+
     var twitterApiKey: String {
         return stringForKey("Twitter.APIKey")
     }
 
     var twitterApiKeySecret: String {
         return stringForKey("Twitter.APIKeySecret")
+    }
+
+    var twitterAccessToken: String {
+        return stringForKey("Twitter.AccessToken")
+    }
+
+    var twitterAccessTokenSecret: String {
+        return stringForKey("Twitter.AccessTokenSecret")
     }
 }

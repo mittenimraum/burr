@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D4267D1623C5E60800632BA3 /* Credentials.enc in Resources */ = {isa = PBXBuildFile; fileRef = D4267D1523C5E60800632BA3 /* Credentials.enc */; };
+		D4267D2723C5F2E100632BA3 /* TinyNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = D4267D2623C5F2E100632BA3 /* TinyNetworking */; };
+		D4267D2B23C6052200632BA3 /* TwitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4267D2A23C6052200632BA3 /* TwitterAPI.swift */; };
+		D4267D2E23C6201000632BA3 /* OhhAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D4267D2D23C6201000632BA3 /* OhhAuth */; };
 		D49D200E23C4FC9C00483FDC /* RoutePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49D200D23C4FC9C00483FDC /* RoutePath.swift */; };
 		D49D201023C4FD1F00483FDC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49D200F23C4FD1F00483FDC /* OnboardingView.swift */; };
 		D49D201223C4FF6100483FDC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49D201123C4FF6100483FDC /* AppCoordinator.swift */; };
@@ -31,6 +34,11 @@
 		D4A43A9A23C5E1490052821F /* Obfuscator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A43A9923C5E1490052821F /* Obfuscator.swift */; };
 		D4A43A9C23C5E3E40052821F /* Foundation+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A43A9B23C5E3E30052821F /* Foundation+String.swift */; };
 		D4A43A9E23C5E4460052821F /* Foundation+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A43A9D23C5E4460052821F /* Foundation+Dictionary.swift */; };
+		D4C4153523C62BA700EFAA98 /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4153423C62BA700EFAA98 /* Networkable.swift */; };
+		D4C4153723C62BD100EFAA98 /* Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4153623C62BD100EFAA98 /* Domain.swift */; };
+		D4C4153923C62D8000EFAA98 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4153823C62D8000EFAA98 /* Resource.swift */; };
+		D4C4153C23C6370600EFAA98 /* TwitterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4153B23C6370600EFAA98 /* TwitterResponse.swift */; };
+		D4C4153E23C6374500EFAA98 /* TwitterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4153D23C6374500EFAA98 /* TwitterStatus.swift */; };
 		D4DD899123C4AA2200179696 /* SwiftUIArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DD899023C4AA2200179696 /* SwiftUIArchitectureTests.swift */; };
 		D4DD899C23C4AA2200179696 /* SwiftUIArchitectureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DD899B23C4AA2200179696 /* SwiftUIArchitectureUITests.swift */; };
 		D4DD89AB23C4AC4600179696 /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = D4DD89AA23C4AC4600179696 /* Store */; };
@@ -63,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		D4267D1523C5E60800632BA3 /* Credentials.enc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Credentials.enc; sourceTree = "<group>"; };
+		D4267D2A23C6052200632BA3 /* TwitterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAPI.swift; sourceTree = "<group>"; };
 		D49D200D23C4FC9C00483FDC /* RoutePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePath.swift; sourceTree = "<group>"; };
 		D49D200F23C4FD1F00483FDC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		D49D201123C4FF6100483FDC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -87,6 +96,11 @@
 		D4A43A9923C5E1490052821F /* Obfuscator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obfuscator.swift; sourceTree = "<group>"; };
 		D4A43A9B23C5E3E30052821F /* Foundation+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+String.swift"; sourceTree = "<group>"; };
 		D4A43A9D23C5E4460052821F /* Foundation+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Dictionary.swift"; sourceTree = "<group>"; };
+		D4C4153423C62BA700EFAA98 /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
+		D4C4153623C62BD100EFAA98 /* Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain.swift; sourceTree = "<group>"; };
+		D4C4153823C62D8000EFAA98 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		D4C4153B23C6370600EFAA98 /* TwitterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterResponse.swift; sourceTree = "<group>"; };
+		D4C4153D23C6374500EFAA98 /* TwitterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterStatus.swift; sourceTree = "<group>"; };
 		D4DD897623C4AA1F00179696 /* SwiftUIArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DD898723C4AA2100179696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4DD898C23C4AA2200179696 /* SwiftUIArchitectureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIArchitectureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +125,8 @@
 			files = (
 				D4DD89AB23C4AC4600179696 /* Store in Frameworks */,
 				D4DD89AE23C4AC6500179696 /* SwiftUIRouter in Frameworks */,
+				D4267D2723C5F2E100632BA3 /* TinyNetworking in Frameworks */,
+				D4267D2E23C6201000632BA3 /* OhhAuth in Frameworks */,
 				D4A43A9123C5DE4D0052821F /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +148,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4267D2123C5F00F00632BA3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D4267D2823C6051000632BA3 /* API */,
+				D4C4153423C62BA700EFAA98 /* Networkable.swift */,
+				D4C4153823C62D8000EFAA98 /* Resource.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D4267D2823C6051000632BA3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D4267D2A23C6052200632BA3 /* TwitterAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		D49D200723C4FBC900483FDC /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +231,15 @@
 				D4A43A9D23C5E4460052821F /* Foundation+Dictionary.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D4C4153A23C636E800EFAA98 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				D4C4153B23C6370600EFAA98 /* TwitterResponse.swift */,
+				D4C4153D23C6374500EFAA98 /* TwitterStatus.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		D4DD896D23C4AA1F00179696 = {
@@ -289,7 +332,10 @@
 		D4DD89C223C4AD8000179696 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				D4C4153A23C636E800EFAA98 /* Entities */,
 				D4A43A8A23C5DD8A0052821F /* Credentials */,
+				D4267D2123C5F00F00632BA3 /* Network */,
+				D4C4153623C62BD100EFAA98 /* Domain.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -369,6 +415,8 @@
 				D4DD89AA23C4AC4600179696 /* Store */,
 				D4DD89AD23C4AC6500179696 /* SwiftUIRouter */,
 				D4A43A9023C5DE4D0052821F /* CryptoSwift */,
+				D4267D2623C5F2E100632BA3 /* TinyNetworking */,
+				D4267D2D23C6201000632BA3 /* OhhAuth */,
 			);
 			productName = SwiftUIArchitecture;
 			productReference = D4DD897623C4AA1F00179696 /* SwiftUIArchitecture.app */;
@@ -446,6 +494,8 @@
 				D4DD89A923C4AC4600179696 /* XCRemoteSwiftPackageReference "Store" */,
 				D4DD89AC23C4AC6500179696 /* XCRemoteSwiftPackageReference "SwiftUIRouter" */,
 				D4A43A8F23C5DE4D0052821F /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				D4267D2523C5F2E100632BA3 /* XCRemoteSwiftPackageReference "TinyNetworking" */,
+				D4267D2C23C6201000632BA3 /* XCRemoteSwiftPackageReference "OhhAuth" */,
 			);
 			productRefGroup = D4DD897723C4AA1F00179696 /* Products */;
 			projectDirPath = "";
@@ -522,7 +572,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mint run swiftlint swiftlint #autocorrect\n";
+			shellScript = "mint run swiftformat swiftformat SwiftUIArchitecture/Source\nmint run swiftlint swiftlint #autocorrect\n";
 		};
 		D4DD89C823C4B96A00179696 /* Prepare Assets */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -552,6 +602,7 @@
 				D49D201723C5004700483FDC /* AppState.swift in Sources */,
 				D49D200E23C4FC9C00483FDC /* RoutePath.swift in Sources */,
 				D4A43A7523C5C7F70052821F /* HomeView.swift in Sources */,
+				D4C4153923C62D8000EFAA98 /* Resource.swift in Sources */,
 				D4A43A8E23C5DDA00052821F /* Credentials.swift in Sources */,
 				D49D201923C500FD00483FDC /* AppAction.swift in Sources */,
 				D4A43A9E23C5E4460052821F /* Foundation+Dictionary.swift in Sources */,
@@ -559,12 +610,17 @@
 				D49D201023C4FD1F00483FDC /* OnboardingView.swift in Sources */,
 				D4A43A8C23C5DD970052821F /* Configuration.swift in Sources */,
 				D4DD89D523C4DAF900179696 /* RootView.swift in Sources */,
+				D4C4153523C62BA700EFAA98 /* Networkable.swift in Sources */,
 				D4A43A8023C5CCC30052821F /* FeedView.swift in Sources */,
 				D49D202023C5041C00483FDC /* RouteAction.swift in Sources */,
 				D4A43A9C23C5E3E40052821F /* Foundation+String.swift in Sources */,
 				D4A43A8223C5CCCD0052821F /* FeedPresenter.swift in Sources */,
 				D4A43A9723C5DF5D0052821F /* Credentials.enc.swift in Sources */,
+				D4C4153E23C6374500EFAA98 /* TwitterStatus.swift in Sources */,
 				D4F7ACBC23C529240039A840 /* RouterView.swift in Sources */,
+				D4C4153C23C6370600EFAA98 /* TwitterResponse.swift in Sources */,
+				D4267D2B23C6052200632BA3 /* TwitterAPI.swift in Sources */,
+				D4C4153723C62BD100EFAA98 /* Domain.swift in Sources */,
 				D49D201E23C5030C00483FDC /* RouteState.swift in Sources */,
 				D4A43A9A23C5E1490052821F /* Obfuscator.swift in Sources */,
 				D4DD89BB23C4AD0A00179696 /* AppDelegate.swift in Sources */,
@@ -896,6 +952,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D4267D2523C5F2E100632BA3 /* XCRemoteSwiftPackageReference "TinyNetworking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jdisho/TinyNetworking";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		D4267D2C23C6201000632BA3 /* XCRemoteSwiftPackageReference "OhhAuth" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mw99/OhhAuth";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 		D4A43A8F23C5DE4D0052821F /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift";
@@ -923,6 +995,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D4267D2623C5F2E100632BA3 /* TinyNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4267D2523C5F2E100632BA3 /* XCRemoteSwiftPackageReference "TinyNetworking" */;
+			productName = TinyNetworking;
+		};
+		D4267D2D23C6201000632BA3 /* OhhAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4267D2C23C6201000632BA3 /* XCRemoteSwiftPackageReference "OhhAuth" */;
+			productName = OhhAuth;
+		};
 		D4A43A9023C5DE4D0052821F /* CryptoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D4A43A8F23C5DE4D0052821F /* XCRemoteSwiftPackageReference "CryptoSwift" */;
