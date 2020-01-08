@@ -25,7 +25,7 @@ struct RootView: View {
                 onboardingPresenter(self.store)
                     .transition(.opacity)
             }
-            Route(path: RoutePath.home.id) { _ in
+            Route(path: RoutePath.feed.id) { _ in
                 homePresenter(self.store)
                     .transition(.opacity)
             }

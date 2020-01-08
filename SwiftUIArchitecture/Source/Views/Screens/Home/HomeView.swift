@@ -16,22 +16,17 @@ struct HomeView: View {
     var interactor: HomeInteractable
     var body: some View {
         TabView {
-            feedPresenter(self.interactor.store)
+            feedPresenter(self.interactor.store, "swiftui")
                 .tabItem {
-                    Image(systemName: "1.circle")
-                    Text("First")
+                    Image(systemName: "grid")
+                    Text("swiftui")
                 }.tag(0)
-            feedPresenter(self.interactor.store)
-                .tabItem {
-                    Image(systemName: "2.circle")
-                    Text("Second")
-                }.tag(1)
         }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(interactor: HomeInteractor(store: Store<AppState>(model: AppState())))
+        HomeView(interactor: HomeInteractor(store: AppStore(model: AppState())))
     }
 }

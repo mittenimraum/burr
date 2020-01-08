@@ -8,8 +8,13 @@
 
 import Foundation
 
-struct TwitterStatus: Codable {
+struct TwitterStatus: Codable, Identifiable, Hashable {
     // MARK: - Variables
 
+    var id: Int?
     var text: String?
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }

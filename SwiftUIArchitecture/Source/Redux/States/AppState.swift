@@ -6,8 +6,10 @@
 //  Copyright © 2020 Stephan Schulz. All rights reserved.
 //
 
+import Store
 import SwiftUIRouter
 
-struct AppState {
+struct AppState: SerializableModelProtocol {
     var route: RouteState = RouteState()
+    var feed: FeedState = FeedState()
 }

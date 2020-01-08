@@ -1,8 +1,8 @@
 //
-//  Resource.swift
+//  TinyNetworking+Resource.swift
 //  SwiftUIArchitecture
 //
-//  Created by Stephan Schulz on 08.01.20.
+//  Created by Stephan Schulz on 09.01.20.
 //  Copyright © 2020 Stephan Schulz. All rights reserved.
 //
 
@@ -37,9 +37,16 @@ extension Resource {
         var requestParameters = [String: String]()
 
         if
-            case let .requestWithParameters(parameters, _) = task,
-            let value = parameters as? [String: String] {
-            requestParameters = value
+            case let .requestWithParameters(parameters, _) = task {
+            parameters.forEach {
+                if let value = $0.value as? Bool {
+                    requestParameters[$0.key] = "\(value)"
+                } else if let value = $0.value as? Int {
+                    requestParameters[$0.key] = "\(value)"
+                } else if let value = $0.value as? String {
+                    requestParameters[$0.key] = value
+                }
+            }
         }
         return requestParameters
     }

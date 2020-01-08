@@ -15,7 +15,7 @@ struct OnboardingView: View {
 
     var interactor: OnboardingInteractable
     var body: some View {
-        Link(to: RoutePath.home.id) {
+        Link(to: RoutePath.feed.id) {
             Text("Onboarding")
         }
     }
@@ -23,6 +23,6 @@ struct OnboardingView: View {
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView(interactor: OnboardingInteractor(store: Store<AppState>(model: AppState())))
+        OnboardingView(interactor: OnboardingInteractor(store: AppStore(model: AppState())))
     }
 }

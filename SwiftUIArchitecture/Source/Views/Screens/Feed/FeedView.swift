@@ -11,14 +11,62 @@ import SwiftUI
 import SwiftUIRouter
 
 struct FeedView: View {
-    var interactor: FeedInteractable
+    @ObservedObject var interactor: FeedInteractor
+
     var body: some View {
-        Text("Feed")
+        GeometryReader { reader in
+            NavigationView {
+                RefreshableList(
+                    shouldTriggerBottom: {
+                        self.interactor.shouldLoadMore
+                    },
+                    didRefresh: {
+                        self.interactor.refresh()
+                    },
+                    didReachBottom: {
+                        self.interactor.fetch()
+                    },
+                    content: {
+                        ForEach(self.interactor.dataSource, id: \.id) { item in
+                            VStack {
+                                FeedTweetCell(
+                                    item: item,
+                                    idealWidth: reader.size.width -
+                                        Interface.Spacing.Feed.List.leading -
+                                        Interface.Spacing.Feed.List.trailing
+                                )
+                                Divider()
+                            }
+                        }
+                        .navigationBarItems(trailing:
+                            HStack {
+                                Button(
+                                    action: {
+                                        debugPrint("Add new hashtag")
+                                    },
+                                    label: {
+                                        Image(systemName: "plus")
+                                    }
+                                )
+                                .foregroundColor(Color(Interface.Colors.primary))
+                        })
+                        .navigationBarTitle("#\(self.interactor.term)")
+                    }
+                )
+            }
+        }
+        .onAppear {
+            self.interactor.subscribe()
+            self.interactor.fetch()
+        }
+        .onDisappear {
+            self.interactor.unsubscribe()
+        }
     }
 }
 
 struct FeedView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedView(interactor: FeedInteractor(store: Store<AppState>(model: AppState())))
+        FeedView(interactor: FeedInteractor(store: AppStore(model: AppState()), term: "#hashtag"))
     }
 }

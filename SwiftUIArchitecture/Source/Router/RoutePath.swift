@@ -8,10 +8,19 @@
 
 import Foundation
 
-enum RoutePath {
+enum RoutePath: String {
     case root
     case onboarding
-    case home
+    case feed
+
+    init?(id: String) {
+        switch id {
+        case RoutePath.root.id: self = .root
+        case RoutePath.onboarding.id: self = .onboarding
+        case RoutePath.feed.id: self = .feed
+        default: return nil
+        }
+    }
 }
 
 extension RoutePath: Equatable {
@@ -19,7 +28,7 @@ extension RoutePath: Equatable {
         switch self {
         case .root: return "/"
         case .onboarding: return "/onboarding"
-        case .home: return "/home"
+        case .feed: return "/feed"
         }
     }
 

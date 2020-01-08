@@ -13,7 +13,7 @@ import TinyNetworking
 // MARK: - TwitterAPI
 
 enum TwitterAPI {
-    case search(term: String)
+    case search(term: String, Pagination)
 }
 
 // MARK: - Parameters / Headers
@@ -21,10 +21,48 @@ enum TwitterAPI {
 extension TwitterAPI {
     enum Parameters: String {
         case term = "q"
+        case count
+        case maxId = "max_id"
     }
 
     enum Headers: String {
         case authorization = "Authorization"
+    }
+
+    class Pagination {
+        // MARK: - Variables
+
+        var page: String?
+        var size: Int
+
+        // MARK: - Variables <Computed>
+
+        var isAtStart: Bool {
+            return page == nil
+        }
+
+        // MARK: - Init
+
+        init(_ page: String? = nil, _ size: Int = 16) {
+            self.page = page
+            self.size = size
+        }
+
+        // MARK: - Methods <Convenience>
+
+        @discardableResult
+        func take(_ page: String?) -> Pagination {
+            self.page = page
+
+            return self
+        }
+
+        @discardableResult
+        func start() -> Pagination {
+            page = nil
+
+            return self
+        }
     }
 }
 
@@ -46,8 +84,13 @@ extension TwitterAPI: Resource {
         var parameters: [String: Any] = [:]
 
         switch self {
-        case let .search(term):
-            parameters[Parameters.term.rawValue] = term
+        case let .search(term, pagination):
+            parameters[Parameters.count.rawValue] = pagination.size
+            parameters[Parameters.term.rawValue] = "\(term) -RT" // without retweets
+
+            if let page = pagination.page {
+                parameters[Parameters.maxId.rawValue] = page
+            }
         }
         return .requestWithParameters(parameters, encoding: URLEncoding())
     }
