@@ -149,7 +149,7 @@
 		D4C4154E23C679DF00EFAA98 /* Foundation+DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+DispatchQueue.swift"; sourceTree = "<group>"; };
 		D4D0BF7C23CB70E7003BFFF5 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		D4D0BF7E23CB7394003BFFF5 /* StoreContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreContainer.swift; sourceTree = "<group>"; };
-		D4DD897623C4AA1F00179696 /* SwiftUIArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4DD897623C4AA1F00179696 /* burr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = burr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DD898723C4AA2100179696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4DD898C23C4AA2200179696 /* SwiftUIArchitectureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIArchitectureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DD899023C4AA2200179696 /* SwiftUIArchitectureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIArchitectureTests.swift; sourceTree = "<group>"; };
@@ -357,7 +357,7 @@
 		D4DD897723C4AA1F00179696 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4DD897623C4AA1F00179696 /* SwiftUIArchitecture.app */,
+				D4DD897623C4AA1F00179696 /* burr.app */,
 				D4DD898C23C4AA2200179696 /* SwiftUIArchitectureTests.xctest */,
 				D4DD899723C4AA2200179696 /* SwiftUIArchitectureUITests.xctest */,
 			);
@@ -534,7 +534,7 @@
 				D45AD86523C73E8B00438F1C /* AttributedTextView */,
 			);
 			productName = SwiftUIArchitecture;
-			productReference = D4DD897623C4AA1F00179696 /* SwiftUIArchitecture.app */;
+			productReference = D4DD897623C4AA1F00179696 /* burr.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D4DD898B23C4AA2200179696 /* SwiftUIArchitectureTests */ = {
@@ -954,7 +954,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stephanschulz.-";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = burr;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -976,7 +976,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stephanschulz.-";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = burr;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -17,7 +17,10 @@ struct HomeView: View {
         TabView {
             feedPresenter(self.interactor.store, "swiftui")
                 .tabItem {
-                    Image(systemName: "grid")
+                    Image(uiImage: "#".image(
+                        withAttributes:
+                        [.font: UIFont.systemFont(ofSize: 24, weight: .bold)]
+                    ))
                     Text("swiftui")
                 }.tag(0)
         }.accentColor(Color(Interface.Colors.secondary))
