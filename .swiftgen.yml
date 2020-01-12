@@ -1,5 +1,5 @@
 strings:
-  inputs: SwiftUIArchitecture/Source/Assets/Base.lproj
+  inputs: SwiftUIArchitecture/Source/Assets/en.lproj
   filter: .+\.strings$
   outputs:
     - templateName: structured-swift4

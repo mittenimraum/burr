@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import SwiftUI
 import UIKit
 
 extension Interface {
     struct Colors {
         static let primary = UIColor.black
-        static let secondary = #colorLiteral(red: 0.2431269586, green: 0.5673111081, blue: 0.7958375216, alpha: 1)
+        static let secondary = UIColor(hex: 0x1A91DA)
     }
 }

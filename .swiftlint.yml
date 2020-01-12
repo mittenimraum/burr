@@ -50,3 +50,6 @@ identifier_name:
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube, markdown)
 nesting:
   type_level: 3
+large_tuple: # warn user when using 3 values in tuple, give error if there are 4
+   - 4
+   - 5

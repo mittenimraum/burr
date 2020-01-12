@@ -6,7 +6,6 @@
 //  Copyright © 2020 Stephan Schulz. All rights reserved.
 //
 
-import Store
 import SwiftUIRouter
 
 // MARK: - Types

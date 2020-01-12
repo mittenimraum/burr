@@ -16,6 +16,8 @@ struct FeedTweetCell: View {
     let item: TwitterStatus
     let idealWidth: CGFloat
 
+    @State var showingDetail: (Bool, URL?) = (false, nil)
+
     // MARK: - Variables
 
     var body: some View {
@@ -31,8 +33,13 @@ struct FeedTweetCell: View {
                 }
                 .matchHyperlinks
                 .makeInteract { link in
-                    debugPrint(link)
+                    guard let url = URL(string: link) else {
+                        return
+                    }
+                    self.showingDetail = (true, url)
                 }
+        }.sheet(isPresented: $showingDetail.0) {
+            WebLinkView(url: self.showingDetail.1)
         }
     }
 

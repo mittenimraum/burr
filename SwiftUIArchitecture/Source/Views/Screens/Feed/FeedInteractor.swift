@@ -6,10 +6,8 @@
 //  Copyright © 2020 Stephan Schulz. All rights reserved.
 //
 
-import CancelBag
 import Combine
 import Foundation
-import Store
 import SwiftUI
 
 class FeedInteractor: Networkable, ObservableObject {
@@ -40,6 +38,8 @@ class FeedInteractor: Networkable, ObservableObject {
     init(store: AppStore, term: String) {
         self.store = store
         self.term = term
+
+        fetch()
     }
 
     // MARK: - Actions

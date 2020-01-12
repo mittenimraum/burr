@@ -6,12 +6,19 @@
 //  Copyright © 2020 Stephan Schulz. All rights reserved.
 //
 
-import Store
 import SwiftUI
 import SwiftUIRouter
 
 struct FeedView: View {
+    // MARK: - Constants
+
+    let id = UUID()
+
+    // MARK: - Variables
+
     @ObservedObject var interactor: FeedInteractor
+
+    // MARK: - Body
 
     var body: some View {
         GeometryReader { reader in
@@ -53,11 +60,10 @@ struct FeedView: View {
                         .navigationBarTitle("#\(self.interactor.term)")
                     }
                 )
-            }
+            }.id(self.id)
         }
         .onAppear {
             self.interactor.subscribe()
-            self.interactor.fetch()
         }
         .onDisappear {
             self.interactor.unsubscribe()
