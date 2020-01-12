@@ -25,7 +25,7 @@ class FeedInteractor: Networkable, ObservableObject {
     @Published var dataSource: [TwitterStatus] = []
 
     var shouldLoadMore: Bool {
-        if case .success = store.model.feed.items {
+        if case .success = store.value.feed.items {
             return true
         }
         return false
@@ -45,17 +45,21 @@ class FeedInteractor: Networkable, ObservableObject {
     // MARK: - Actions
 
     func refresh() {
-        store.run(action: FeedAction.refresh(term: term, pagination.start(), actionBag))
+        FeedAction.refresh(term: term, pagination.start(), actionBag).reduce(store: store)
     }
 
     func fetch() {
-        store.run(action: FeedAction.fetch(term: term, pagination, actionBag))
+        FeedAction.fetch(term: term, pagination, actionBag).reduce(store: store)
     }
 }
 
 extension FeedInteractor: StoreSubscriber {
-    func newState(state: AppState) {
-        switch state.feed.items {
+    func subscribe() {
+        subscribe(to: \.feed)
+    }
+
+    func newState(state: FeedState) {
+        switch state.items {
         case .initial:
             break
         case .refreshing:

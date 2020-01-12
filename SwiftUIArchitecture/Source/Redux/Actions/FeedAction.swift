@@ -13,7 +13,7 @@ import Store
 import SwiftUIRouter
 import TinyNetworking
 
-enum FeedAction: ActionProtocol, Networkable {
+enum FeedAction: Networkable {
     // MARK: - Cases
 
     case fetch(term: String, TwitterAPI.Pagination, CancelBag)
@@ -30,45 +30,44 @@ enum FeedAction: ActionProtocol, Networkable {
 
     // MARK: - Reducer
 
-    func reduce(context: TransactionContext<AppStore, Self>) {
+    func reduce(store: AppStore) {
         switch self {
         case let .fetch(term, pagination, bag):
-            context.reduceModel {
-                $0.feed.items = .fetching
+            store.reduce { state in
+                state.feed.items = .fetching
             }
-            request(context: context, term: term, pagination: pagination, bag: bag)
+            request(store: store, term: term, pagination: pagination, bag: bag)
         case let .refresh(term, pagination, bag):
-            context.reduceModel {
-                $0.feed.items = .refreshing
+            store.reduce { state in
+                state.feed.items = .refreshing
             }
-            request(context: context, term: term, pagination: pagination, bag: bag)
+            request(store: store, term: term, pagination: pagination, bag: bag)
         }
     }
 
-    private func request(context: TransactionContext<AppStore, Self>, term: String, pagination: TwitterAPI.Pagination, bag: CancelBag) {
+    private func request(store: AppStore, term: String, pagination: TwitterAPI.Pagination, bag: CancelBag) {
         twitterAPI.requestPublisher(resource: .search(term: term, pagination), queue: .global(qos: .userInitiated))
             .tryMap { try $0.map(to: TwitterResponse.self) }
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { result in
                 switch result {
                 case let .failure(error):
-                    context.reduceModel {
-                        $0.feed.items = .error(error)
+                    store.reduce { state in
+                        state.feed.items = .error(error)
                     }
 
                 default:
                     break
                 }
-                context.fulfill()
             }, receiveValue: { value in
-                context.reduceModel {
+                store.reduce { state in
                     guard let array = value.statuses else {
                         return
                     }
-                    $0.feed.items = .success(array)
+                    state.feed.items = .success(array)
                 }
                 pagination.take(value.nextMaxId)
             })
-            .cancel(with: bag)
+            .store(in: bag)
     }
 }

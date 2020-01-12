@@ -6,6 +6,8 @@
 //  Copyright © 2020 Stephan Schulz. All rights reserved.
 //
 
+import Foundation
+
 class Credentials: Configuration {
     // MARK: - Constants
 
@@ -25,22 +27,22 @@ class Credentials: Configuration {
     }
 
     var twitterBaseURL: String {
-        return stringForKey("Twitter.BaseURL")
+        return self[\.Twitter!.BaseURL!]
     }
 
     var twitterApiKey: String {
-        return stringForKey("Twitter.APIKey")
+        return self[\.Twitter!.APIKey!]
     }
 
     var twitterApiKeySecret: String {
-        return stringForKey("Twitter.APIKeySecret")
+        return self[\.Twitter!.APIKeySecret!]
     }
 
     var twitterAccessToken: String {
-        return stringForKey("Twitter.AccessToken")
+        return self[\.Twitter!.AccessToken!]
     }
 
     var twitterAccessTokenSecret: String {
-        return stringForKey("Twitter.AccessTokenSecret")
+        return self[\.Twitter!.AccessTokenSecret!]
     }
 }

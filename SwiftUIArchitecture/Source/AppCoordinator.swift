@@ -11,7 +11,7 @@ import SwiftUIRouter
 
 // MARK: - Types
 
-typealias AppStore = SerializableStore<AppState>
+typealias AppStore = Store<AppState>
 typealias AppRouter = Router<RouterView<RootView>>
 
 // MARK: - AppCoordinator
@@ -25,7 +25,7 @@ class AppCoordinator {
     // MARK: - Init
 
     init(_ state: AppState) {
-        store = AppStore(model: state, diffing: .sync)
+        store = AppStore(state)
         let routerView = RouterView(store: store, RootView())
         router = Router(content: { routerView })
 

@@ -23,6 +23,6 @@ struct OnboardingView: View {
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView(interactor: OnboardingInteractor(store: AppStore(model: AppState())))
+        OnboardingView(interactor: OnboardingInteractor(store: AppStore(AppState())))
     }
 }

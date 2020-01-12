@@ -24,11 +24,10 @@ class Configuration {
         fatalError("Configuration.configurationFile should be overriden by a subclass")
     }
 
+    var dictionary: [String: Any]?
     var encryption: Encryption {
         return .none
     }
-
-    var dictionary: [String: AnyObject]?
 
     // MARK: - Init
 
@@ -47,18 +46,9 @@ class Configuration {
 
     // MARK: - Util
 
-    func stringForKey(_ key: String) -> String {
-        guard let value = dictionary?[keyPath: KeyPath(key)] as? String else {
-            debugPrint(self, "stringForKey didn't find key: ", key)
-            return ""
-        }
-        return value
-    }
-
-    func boolForKey(_ key: String) -> Bool {
-        guard let value = dictionary?[keyPath: KeyPath(key)] as? Bool else {
-            debugPrint(self, "boolForKey didn't find key: ", key)
-            return false
+    subscript<T>(keypath: KeyPath<[String: Any], T>) -> T {
+        guard let value = dictionary?[keyPath: keypath] else {
+            fatalError("Didn't find value for \(keypath)")
         }
         return value
     }

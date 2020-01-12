@@ -7,10 +7,9 @@
 //
 
 import Foundation
-import Store
 import SwiftUIRouter
 
-enum RouteAction: ActionProtocol {
+enum RouteAction {
     // MARK: - Cases
 
     case setPath(RoutePath)
@@ -27,18 +26,15 @@ enum RouteAction: ActionProtocol {
 
     // MARK: - Reducer
 
-    func reduce(context: TransactionContext<AppStore, Self>) {
-        defer {
-            context.fulfill()
-        }
+    func reduce(store: AppStore) {
         switch self {
         case let .setPath(path):
-            context.reduceModel {
+            store.reduce {
                 $0.route.path = path
                 $0.route.history?.go(path.id)
             }
         case let .setHistory(history):
-            context.reduceModel {
+            store.reduce {
                 $0.route.history = history
             }
         }

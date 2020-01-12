@@ -15,18 +15,18 @@ import SwiftUIRouter
 struct RootView: View {
     // MARK: - Variables <Private>
 
-    @EnvironmentObject private var store: AppStore
+    @Environment(\.container) private var container: StoreContainer
 
     // MARK: - Variables
 
     var body: some View {
         Switch {
             Route(path: RoutePath.onboarding.id) { _ in
-                onboardingPresenter(self.store)
+                onboardingPresenter(self.container.store)
                     .transition(.opacity)
             }
             Route(path: RoutePath.feed.id) { _ in
-                homePresenter(self.store)
+                homePresenter(self.container.store)
                     .transition(.opacity)
             }
         }

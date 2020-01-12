@@ -42,12 +42,12 @@ struct RouterView<Content: View>: View {
                         guard let path = RoutePath(id: self.history.path) else {
                             return
                         }
-                        self.store.run(action: RouteAction.setPath(path))
+                        RouteAction.setPath(path).reduce(store: self.store)
                     }
-                }.cancel(with: self.bag)
-                self.store.run(action: RouteAction.setHistory(self.history), mode: .sync)
-                self.store.run(action: RouteAction.setPath(self.store.model.route.path), mode: .sync)
+                }.store(in: self.bag)
+                RouteAction.setHistory(self.history).reduce(store: self.store)
+                RouteAction.setPath(self.store.value.route.path).reduce(store: self.store)
             }
-            .environmentObject(store)
+            .modifier(StoreContainer.Injector(container: StoreContainer(store: store)))
     }
 }

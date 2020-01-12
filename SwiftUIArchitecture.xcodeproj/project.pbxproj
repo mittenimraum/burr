@@ -53,12 +53,12 @@
 		D4C4153E23C6374500EFAA98 /* TwitterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4153D23C6374500EFAA98 /* TwitterStatus.swift */; };
 		D4C4154323C63F0D00EFAA98 /* FeedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4154223C63F0D00EFAA98 /* FeedState.swift */; };
 		D4C4154523C63F8100EFAA98 /* FeedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4154423C63F8100EFAA98 /* FeedAction.swift */; };
-		D4C4154823C64D7A00EFAA98 /* CancelBag in Frameworks */ = {isa = PBXBuildFile; productRef = D4C4154723C64D7A00EFAA98 /* CancelBag */; };
 		D4C4154A23C6607600EFAA98 /* StoreSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4154923C6607600EFAA98 /* StoreSubscriber.swift */; };
 		D4C4154F23C679DF00EFAA98 /* Foundation+DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4154E23C679DF00EFAA98 /* Foundation+DispatchQueue.swift */; };
+		D4D0BF7D23CB70E7003BFFF5 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0BF7C23CB70E7003BFFF5 /* Store.swift */; };
+		D4D0BF7F23CB7394003BFFF5 /* StoreContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0BF7E23CB7394003BFFF5 /* StoreContainer.swift */; };
 		D4DD899123C4AA2200179696 /* SwiftUIArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DD899023C4AA2200179696 /* SwiftUIArchitectureTests.swift */; };
 		D4DD899C23C4AA2200179696 /* SwiftUIArchitectureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DD899B23C4AA2200179696 /* SwiftUIArchitectureUITests.swift */; };
-		D4DD89AB23C4AC4600179696 /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = D4DD89AA23C4AC4600179696 /* Store */; };
 		D4DD89AE23C4AC6500179696 /* SwiftUIRouter in Frameworks */ = {isa = PBXBuildFile; productRef = D4DD89AD23C4AC6500179696 /* SwiftUIRouter */; };
 		D4DD89BB23C4AD0A00179696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DD89B223C4AD0A00179696 /* AppDelegate.swift */; };
 		D4DD89BC23C4AD0A00179696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4DD89B423C4AD0A00179696 /* Assets.xcassets */; };
@@ -135,6 +135,8 @@
 		D4C4154423C63F8100EFAA98 /* FeedAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAction.swift; sourceTree = "<group>"; };
 		D4C4154923C6607600EFAA98 /* StoreSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSubscriber.swift; sourceTree = "<group>"; };
 		D4C4154E23C679DF00EFAA98 /* Foundation+DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+DispatchQueue.swift"; sourceTree = "<group>"; };
+		D4D0BF7C23CB70E7003BFFF5 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		D4D0BF7E23CB7394003BFFF5 /* StoreContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreContainer.swift; sourceTree = "<group>"; };
 		D4DD897623C4AA1F00179696 /* SwiftUIArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DD898723C4AA2100179696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4DD898C23C4AA2200179696 /* SwiftUIArchitectureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIArchitectureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,13 +161,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4DD89AB23C4AC4600179696 /* Store in Frameworks */,
 				D4DD89AE23C4AC6500179696 /* SwiftUIRouter in Frameworks */,
 				D4267D2723C5F2E100632BA3 /* TinyNetworking in Frameworks */,
 				D4267D2E23C6201000632BA3 /* OhhAuth in Frameworks */,
 				D45AD86623C73E8B00438F1C /* AttributedTextView in Frameworks */,
 				D4A43A9123C5DE4D0052821F /* CryptoSwift in Frameworks */,
-				D4C4154823C64D7A00EFAA98 /* CancelBag in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,10 +398,10 @@
 		D4DD89C223C4AD8000179696 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				D4C4153A23C636E800EFAA98 /* Entities */,
-				D4A43A8A23C5DD8A0052821F /* Credentials */,
-				D4267D2123C5F00F00632BA3 /* Network */,
 				D4C4153623C62BD100EFAA98 /* Domain.swift */,
+				D4A43A8A23C5DD8A0052821F /* Credentials */,
+				D4C4153A23C636E800EFAA98 /* Entities */,
+				D4267D2123C5F00F00632BA3 /* Network */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -420,6 +420,8 @@
 			children = (
 				D49D201423C5003500483FDC /* Actions */,
 				D49D201323C5002F00483FDC /* States */,
+				D4D0BF7C23CB70E7003BFFF5 /* Store.swift */,
+				D4D0BF7E23CB7394003BFFF5 /* StoreContainer.swift */,
 				D4C4154923C6607600EFAA98 /* StoreSubscriber.swift */,
 			);
 			path = Redux;
@@ -483,12 +485,10 @@
 			);
 			name = SwiftUIArchitecture;
 			packageProductDependencies = (
-				D4DD89AA23C4AC4600179696 /* Store */,
 				D4DD89AD23C4AC6500179696 /* SwiftUIRouter */,
 				D4A43A9023C5DE4D0052821F /* CryptoSwift */,
 				D4267D2623C5F2E100632BA3 /* TinyNetworking */,
 				D4267D2D23C6201000632BA3 /* OhhAuth */,
-				D4C4154723C64D7A00EFAA98 /* CancelBag */,
 				D45AD86523C73E8B00438F1C /* AttributedTextView */,
 			);
 			productName = SwiftUIArchitecture;
@@ -564,12 +564,10 @@
 			);
 			mainGroup = D4DD896D23C4AA1F00179696;
 			packageReferences = (
-				D4DD89A923C4AC4600179696 /* XCRemoteSwiftPackageReference "Store" */,
 				D4DD89AC23C4AC6500179696 /* XCRemoteSwiftPackageReference "SwiftUIRouter" */,
 				D4A43A8F23C5DE4D0052821F /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 				D4267D2523C5F2E100632BA3 /* XCRemoteSwiftPackageReference "TinyNetworking" */,
 				D4267D2C23C6201000632BA3 /* XCRemoteSwiftPackageReference "OhhAuth" */,
-				D4C4154623C64D7A00EFAA98 /* XCRemoteSwiftPackageReference "CancelBag" */,
 				D45AD86423C73E8B00438F1C /* XCRemoteSwiftPackageReference "AttributedTextView" */,
 			);
 			productRefGroup = D4DD897723C4AA1F00179696 /* Products */;
@@ -695,6 +693,7 @@
 				D45AD86823C73F3C00438F1C /* AttributedTextBuilder.swift in Sources */,
 				D4C4154A23C6607600EFAA98 /* StoreSubscriber.swift in Sources */,
 				D4A43A8C23C5DD970052821F /* Configuration.swift in Sources */,
+				D4D0BF7D23CB70E7003BFFF5 /* Store.swift in Sources */,
 				D4DD89D523C4DAF900179696 /* RootView.swift in Sources */,
 				D4C4153523C62BA700EFAA98 /* Networkable.swift in Sources */,
 				D4EFE01823CA39820045677F /* ListState.swift in Sources */,
@@ -712,6 +711,7 @@
 				D49D201E23C5030C00483FDC /* RouteState.swift in Sources */,
 				D4A43A9A23C5E1490052821F /* Obfuscator.swift in Sources */,
 				D4DD89BB23C4AD0A00179696 /* AppDelegate.swift in Sources */,
+				D4D0BF7F23CB7394003BFFF5 /* StoreContainer.swift in Sources */,
 				D49D201223C4FF6100483FDC /* AppCoordinator.swift in Sources */,
 				D4DD89C023C4AD0A00179696 /* SceneDelegate.swift in Sources */,
 				D4A43A8423C5CCD50052821F /* FeedInteractor.swift in Sources */,
@@ -1080,22 +1080,6 @@
 				minimumVersion = 1.3.0;
 			};
 		};
-		D4C4154623C64D7A00EFAA98 /* XCRemoteSwiftPackageReference "CancelBag" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/CancelBag";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		D4DD89A923C4AC4600179696 /* XCRemoteSwiftPackageReference "Store" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/alexdrone/Store.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.7.2;
-			};
-		};
 		D4DD89AC23C4AC6500179696 /* XCRemoteSwiftPackageReference "SwiftUIRouter" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/frzi/SwiftUIRouter";
@@ -1126,16 +1110,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D4A43A8F23C5DE4D0052821F /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
-		};
-		D4C4154723C64D7A00EFAA98 /* CancelBag */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D4C4154623C64D7A00EFAA98 /* XCRemoteSwiftPackageReference "CancelBag" */;
-			productName = CancelBag;
-		};
-		D4DD89AA23C4AC4600179696 /* Store */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D4DD89A923C4AC4600179696 /* XCRemoteSwiftPackageReference "Store" */;
-			productName = Store;
 		};
 		D4DD89AD23C4AC6500179696 /* SwiftUIRouter */ = {
 			isa = XCSwiftPackageProductDependency;

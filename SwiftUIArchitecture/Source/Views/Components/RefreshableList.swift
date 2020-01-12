@@ -175,7 +175,7 @@ struct Spinner: View {
                     .opacity(Double(index) / 12.0)
                     .offset(x: 0, y: -8)
                     .rotationEffect(.degrees(Double(30 * index)), anchor: .bottom)
-            }.offset(x: 20, y: 10)
+            }.offset(x: 19, y: 10)
         }.frame(width: PullToRefresh.viewHeight, height: PullToRefresh.viewHeight)
     }
 }
