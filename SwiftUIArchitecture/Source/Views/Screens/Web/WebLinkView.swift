@@ -63,6 +63,8 @@ struct WebLinkView: View {
                 return
             }
             self.webViewStore.webView.load(URLRequest(url: url))
+        }.onDisappear {
+            self.webViewStore.dispose()
         }.sheet(isPresented: $showShareSheet) {
             ShareSheet(activityItems: [self.url as Any], applicationActivities: [SafariActivity()])
         }

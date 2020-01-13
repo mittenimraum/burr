@@ -16,7 +16,7 @@ struct FeedTweetCell: View {
     let item: TwitterStatus
     let idealWidth: CGFloat
 
-    @State var showingDetail: (Bool, URL?) = (false, nil)
+    @State var url: (Bool, URL?) = (false, nil)
 
     // MARK: - Variables
 
@@ -36,10 +36,10 @@ struct FeedTweetCell: View {
                     guard let url = URL(string: link) else {
                         return
                     }
-                    self.showingDetail = (true, url)
+                    self.url = (true, url)
                 }
-        }.sheet(isPresented: $showingDetail.0) {
-            WebLinkView(url: self.showingDetail.1)
+        }.sheet(isPresented: $url.0) {
+            WebLinkView(url: self.url.1)
         }
     }
 
