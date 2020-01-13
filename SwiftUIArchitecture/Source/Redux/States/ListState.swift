@@ -25,6 +25,13 @@ enum ListStatus<T> {
         }
     }
 
+    var value: T? {
+        guard case let .success(value) = self else {
+            return nil
+        }
+        return value
+    }
+
     init(id: String) {
         switch id {
         case "refreshing": self = .refreshing

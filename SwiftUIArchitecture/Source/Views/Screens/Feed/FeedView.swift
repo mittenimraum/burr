@@ -22,52 +22,18 @@ struct FeedView: View {
     // MARK: - Variables <Private>
 
     @State private var isPullToRefreshing = false
+    @State private var triggerViewRendering = 0
 
     // MARK: - Body
 
     var body: some View {
         GeometryReader { reader in
             NavigationView {
-                InfinityList(
-                    shouldTriggerBottom: {
-                        self.interactor.shouldLoadMore
-                    },
-                    didReachBottom: {
-                        self.interactor.fetch()
-                    },
-                    content: {
-                        ForEach(self.interactor.dataSource, id: \.id) { item in
-                            VStack {
-                                FeedTweetCell(
-                                    item: item,
-                                    idealWidth: reader.size.width -
-                                        Interface.Spacing.Feed.List.leading -
-                                        Interface.Spacing.Feed.List.trailing
-                                )
-                                Divider()
-                            }
-                        }
-                        .navigationBarItems(trailing:
-                            HStack {
-                                Button(
-                                    action: {
-                                        debugPrint("Add new hashtag")
-                                    },
-                                    label: {
-                                        Image(systemName: "plus")
-                                    }
-                                )
-                                .foregroundColor(Color(Interface.Colors.primary))
-                        })
-                        .navigationBarTitle("#\(self.interactor.term)")
-                    }
-                )
+                self.content(reader)
+                    .modifier(FeedHeaderView(title: self.interactor.title, action: self.addNewHashtag))
             }
             .background(PullToRefresh(action: {
                 self.interactor.refresh()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.isPullToRefreshing = false
-                }
             }, isShowing: self.$isPullToRefreshing))
             .id(self.id)
         }
@@ -77,6 +43,89 @@ struct FeedView: View {
         .onDisappear {
             self.interactor.unsubscribe()
         }
+    }
+
+    func content(_ reader: GeometryProxy) -> AnyView {
+        DispatchQueue.next {
+            self.isPullToRefreshing = false
+        }
+        switch interactor.status {
+        case let .success(items):
+            return InfinityList(
+                shouldTriggerBottom: {
+                    self.interactor.shouldLoadMore
+                },
+                didReachBottom: {
+                    self.interactor.fetch()
+                },
+                content: {
+                    ForEach(items, id: \.self) { item in
+                        VStack {
+                            FeedTweetCell(
+                                item: item,
+                                idealWidth: reader.size.width
+                                    - Interface.Spacing.Feed.List.leading
+                                    - Interface.Spacing.Feed.List.trailing
+                            )
+                            Divider()
+                        }
+                    }
+                    .modifier(FeedHeaderView(title: self.interactor.title, action: self.addNewHashtag))
+                }
+            )
+            .passthrough { _ in
+                // Workaround for the missing frame changes when using
+                // .provideFrameChanges() in InfinityList
+                //
+                // Occurs only the first time the view is rendered
+                //
+                DispatchQueue.next {
+                    self.triggerViewRendering += 1
+                }
+            }
+            .typeErased
+        case let .error(error):
+            return List {
+                VStack {
+                    Text(error.localizedDescription)
+                        .multilineTextAlignment(.center)
+                }
+                .frame(width: reader.size.width
+                    - Interface.Spacing.Feed.List.leading
+                    - Interface.Spacing.Feed.List.trailing)
+            }
+            .environment(\.defaultMinListRowHeight, reader.size.height
+                - reader.frame(in: .global).origin.y
+                - reader.safeAreaInsets.bottom)
+            .typeErased
+        default:
+            return VStack {
+                ActivityIndicator(isAnimating: .constant(true), style: .large)
+            }
+            .typeErased
+        }
+    }
+
+    private func addNewHashtag() {}
+}
+
+struct FeedHeaderView: ViewModifier {
+    var title: String
+    var action: () -> Void
+
+    func body(content: Content) -> some View {
+        content
+            .navigationBarItems(trailing:
+                HStack {
+                    Button(
+                        action: action,
+                        label: {
+                            Image(systemName: "plus")
+                        }
+                    )
+                    .foregroundColor(Color(Interface.Colors.primary))
+            })
+            .navigationBarTitle(title)
     }
 }
 

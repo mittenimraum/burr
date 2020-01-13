@@ -16,7 +16,7 @@ extension View {
     var typeErased: AnyView { AnyView(self) }
 
     /// Passes-through the view with customizable side effects
-    func passthrough(applying closure: (_ instance: Self) -> Void) -> Self {
+    func passthrough(_ closure: (_ instance: Self) -> Void) -> Self {
         closure(self)
         return self
     }

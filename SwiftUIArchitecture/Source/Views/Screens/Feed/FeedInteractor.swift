@@ -20,13 +20,19 @@ class FeedInteractor: Networkable, ObservableObject {
 
     // MARK: - Variables
 
-    @Published var dataSource: [TwitterStatus] = []
+    @Published var status: ListStatus<[TwitterStatus]> = .initial
+
+    // MARK: - Variables <Computed>
 
     var shouldLoadMore: Bool {
         if case .success = store.value.feed.items {
             return true
         }
         return false
+    }
+
+    var title: String {
+        return "#\(term)"
     }
 
     // MARK: - Variables <Private>
@@ -60,24 +66,24 @@ extension FeedInteractor: StoreSubscriber {
 
     func newState(state: FeedState) {
         switch state.items {
-        case .initial:
-            break
-        case .refreshing:
-            break
-        case .fetching:
-            break
         case let .success(items):
-            if pagination.isAtStart, dataSource != items {
-                dataSource.removeAll()
+            var previousItems = status.value ?? []
+
+            if pagination.isAtStart, previousItems != items {
+                previousItems = []
             }
             items.forEach {
-                guard self.dataSource.contains($0) == false else {
+                guard previousItems.contains($0) == false else {
                     return
                 }
-                self.dataSource.append($0)
+                previousItems.append($0)
             }
+            status = .success(previousItems)
+
         case let .error(error):
-            debugPrint(error)
+            status = .error(error)
+        default:
+            break
         }
     }
 }
