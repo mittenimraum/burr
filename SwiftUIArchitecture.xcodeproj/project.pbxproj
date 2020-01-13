@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D41964C723CC5E10006A84C3 /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = D41964C623CC5E10006A84C3 /* SwiftUIRefresh */; };
 		D4267D1623C5E60800632BA3 /* Credentials.enc in Resources */ = {isa = PBXBuildFile; fileRef = D4267D1523C5E60800632BA3 /* Credentials.enc */; };
 		D4267D2723C5F2E100632BA3 /* TinyNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = D4267D2623C5F2E100632BA3 /* TinyNetworking */; };
 		D4267D2B23C6052200632BA3 /* TwitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4267D2A23C6052200632BA3 /* TwitterAPI.swift */; };
@@ -22,7 +23,7 @@
 		D45AD87323C7444900438F1C /* Interface+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45AD87223C7444900438F1C /* Interface+Colors.swift */; };
 		D45AD87723C7463B00438F1C /* Interface+Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45AD87623C7463B00438F1C /* Interface+Spacing.swift */; };
 		D45AD87E23C7D2A100438F1C /* SwiftUI+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45AD87D23C7D2A100438F1C /* SwiftUI+View.swift */; };
-		D4712DCC23C8BA83007B6034 /* RefreshableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4712DCB23C8BA83007B6034 /* RefreshableList.swift */; };
+		D4712DCC23C8BA83007B6034 /* InfinityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4712DCB23C8BA83007B6034 /* InfinityList.swift */; };
 		D475BA5823CBBAD60061733A /* WebLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475BA5723CBBAD60061733A /* WebLinkView.swift */; };
 		D475BA5B23CBBBFD0061733A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D475BA5D23CBBBFD0061733A /* Localizable.strings */; };
 		D475BA6123CBBD390061733A /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475BA5F23CBBD390061733A /* strings.swift */; };
@@ -107,7 +108,7 @@
 		D45AD87223C7444900438F1C /* Interface+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interface+Colors.swift"; sourceTree = "<group>"; };
 		D45AD87623C7463B00438F1C /* Interface+Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interface+Spacing.swift"; sourceTree = "<group>"; };
 		D45AD87D23C7D2A100438F1C /* SwiftUI+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+View.swift"; sourceTree = "<group>"; };
-		D4712DCB23C8BA83007B6034 /* RefreshableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableList.swift; sourceTree = "<group>"; };
+		D4712DCB23C8BA83007B6034 /* InfinityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfinityList.swift; sourceTree = "<group>"; };
 		D475BA5723CBBAD60061733A /* WebLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLinkView.swift; sourceTree = "<group>"; };
 		D475BA5C23CBBBFD0061733A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D475BA5F23CBBD390061733A /* strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = strings.swift; sourceTree = "<group>"; };
@@ -173,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D41964C723CC5E10006A84C3 /* SwiftUIRefresh in Frameworks */,
 				D4DD89AE23C4AC6500179696 /* SwiftUIRouter in Frameworks */,
 				D4267D2723C5F2E100632BA3 /* TinyNetworking in Frameworks */,
 				D4267D2E23C6201000632BA3 /* OhhAuth in Frameworks */,
@@ -480,7 +482,7 @@
 				D480E4F023C8EE910060B3E9 /* ActivityIndicator.swift */,
 				D45AD86123C7381200438F1C /* AttributedText.swift */,
 				D45AD86723C73F3C00438F1C /* AttributedTextBuilder.swift */,
-				D4712DCB23C8BA83007B6034 /* RefreshableList.swift */,
+				D4712DCB23C8BA83007B6034 /* InfinityList.swift */,
 				D4AD4BAD23CB9E9C00BDB356 /* ShareSheet.swift */,
 				D4AD4BA823CB9B2B00BDB356 /* WebView.swift */,
 			);
@@ -532,6 +534,7 @@
 				D4267D2623C5F2E100632BA3 /* TinyNetworking */,
 				D4267D2D23C6201000632BA3 /* OhhAuth */,
 				D45AD86523C73E8B00438F1C /* AttributedTextView */,
+				D41964C623CC5E10006A84C3 /* SwiftUIRefresh */,
 			);
 			productName = SwiftUIArchitecture;
 			productReference = D4DD897623C4AA1F00179696 /* burr.app */;
@@ -611,6 +614,7 @@
 				D4267D2523C5F2E100632BA3 /* XCRemoteSwiftPackageReference "TinyNetworking" */,
 				D4267D2C23C6201000632BA3 /* XCRemoteSwiftPackageReference "OhhAuth" */,
 				D45AD86423C73E8B00438F1C /* XCRemoteSwiftPackageReference "AttributedTextView" */,
+				D41964C523CC5E10006A84C3 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */,
 			);
 			productRefGroup = D4DD897723C4AA1F00179696 /* Products */;
 			projectDirPath = "";
@@ -731,7 +735,7 @@
 				D4A43A7D23C5CADE0052821F /* OnboardingInteractor.swift in Sources */,
 				D480E4F123C8EE910060B3E9 /* ActivityIndicator.swift in Sources */,
 				D49D201023C4FD1F00483FDC /* OnboardingView.swift in Sources */,
-				D4712DCC23C8BA83007B6034 /* RefreshableList.swift in Sources */,
+				D4712DCC23C8BA83007B6034 /* InfinityList.swift in Sources */,
 				D45AD87723C7463B00438F1C /* Interface+Spacing.swift in Sources */,
 				D45AD86F23C743FC00438F1C /* Interface.swift in Sources */,
 				D45AD86823C73F3C00438F1C /* AttributedTextBuilder.swift in Sources */,
@@ -1104,6 +1108,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D41964C523CC5E10006A84C3 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUIRefresh";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
 		D4267D2523C5F2E100632BA3 /* XCRemoteSwiftPackageReference "TinyNetworking" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jdisho/TinyNetworking";
@@ -1147,6 +1159,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D41964C623CC5E10006A84C3 /* SwiftUIRefresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D41964C523CC5E10006A84C3 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */;
+			productName = SwiftUIRefresh;
+		};
 		D4267D2623C5F2E100632BA3 /* TinyNetworking */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D4267D2523C5F2E100632BA3 /* XCRemoteSwiftPackageReference "TinyNetworking" */;

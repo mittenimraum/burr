@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftUIRefresh
 import SwiftUIRouter
 
 struct FeedView: View {
@@ -18,17 +19,18 @@ struct FeedView: View {
 
     @ObservedObject var interactor: FeedInteractor
 
+    // MARK: - Variables <Private>
+
+    @State private var isPullToRefreshing = false
+
     // MARK: - Body
 
     var body: some View {
         GeometryReader { reader in
             NavigationView {
-                RefreshableList(
+                InfinityList(
                     shouldTriggerBottom: {
                         self.interactor.shouldLoadMore
-                    },
-                    didRefresh: {
-                        self.interactor.refresh()
                     },
                     didReachBottom: {
                         self.interactor.fetch()
@@ -60,7 +62,14 @@ struct FeedView: View {
                         .navigationBarTitle("#\(self.interactor.term)")
                     }
                 )
-            }.id(self.id)
+            }
+            .background(PullToRefresh(action: {
+                self.interactor.refresh()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.isPullToRefreshing = false
+                }
+            }, isShowing: self.$isPullToRefreshing))
+            .id(self.id)
         }
         .onAppear {
             self.interactor.subscribe()
