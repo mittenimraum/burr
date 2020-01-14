@@ -10,13 +10,11 @@ import AttributedTextView
 import Foundation
 import SwiftUI
 
-struct FeedTweetCell: View {
+struct FeedCell: View {
     // MARK: - Constants
 
-    let item: TwitterStatus
+    let item: FeedItem
     let idealWidth: CGFloat
-
-    @State var url: (Bool, URL?) = (false, nil)
 
     // MARK: - Variables
 
@@ -33,18 +31,13 @@ struct FeedTweetCell: View {
                 }
                 .matchHyperlinks
                 .makeInteract { link in
-                    guard let url = URL(string: link) else {
-                        return
-                    }
-                    self.url = (true, url)
+                    self.item.open.run(link)
                 }
-        }.sheet(isPresented: $url.0) {
-            WebLinkView(url: self.url.1)
         }
     }
 
-    static func attributer(for item: TwitterStatus) -> Attributer {
-        Attributer(item.text ?? "")
+    static func attributer(for item: FeedItem) -> Attributer {
+        Attributer(item.status.text ?? "")
             .font(Interface.Fonts.medium)
             .color(Interface.Colors.primary)
             .paragraphLineBreakModeWordWrapping

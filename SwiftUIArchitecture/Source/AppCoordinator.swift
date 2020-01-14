@@ -8,11 +8,6 @@
 
 import SwiftUIRouter
 
-// MARK: - Types
-
-typealias AppStore = Store<AppState>
-typealias AppRouter = Router<RouterView<RootView>>
-
 // MARK: - AppCoordinator
 
 class AppCoordinator {

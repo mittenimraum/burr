@@ -15,6 +15,13 @@ import SwiftUI
 
 typealias Store<State> = CurrentValueSubject<State, Never>
 
+protocol Reducable where Failure: Error {
+    associatedtype Output
+    associatedtype Failure
+
+    func reduce(store: CurrentValueSubject<Output, Failure>)
+}
+
 extension CurrentValueSubject {
     subscript<T>(keyPath: WritableKeyPath<Output, T>) -> T where T: Equatable {
         get {
@@ -36,37 +43,13 @@ extension CurrentValueSubject {
         self.value = value
     }
 
+    func dispatch<Action>(_ action: Action) where Action: Reducable,
+        Action.Output == Output, Action.Failure == Failure {
+        action.reduce(store: self)
+    }
+
     func subscribe<Value>(for keyPath: KeyPath<Output, Value>) -> AnyPublisher<Value, Failure> where Value: Equatable {
         return map(keyPath).removeDuplicates().eraseToAnyPublisher()
-    }
-}
-
-extension Subscribers.Completion {
-    var error: Failure? {
-        switch self {
-        case let .failure(error): return error
-        default: return nil
-        }
-    }
-}
-
-extension Publisher {
-    func sinkToResult(_ result: @escaping (Result<Output, Failure>) -> Void) -> AnyCancellable {
-        return sink(receiveCompletion: { completion in
-            switch completion {
-            case let .failure(error):
-                result(.failure(error))
-            default: break
-            }
-        }, receiveValue: { value in
-            result(.success(value))
-        })
-    }
-
-    func extractUnderlyingError() -> Publishers.MapError<Self, Failure> {
-        mapError {
-            (($0 as NSError).userInfo[NSUnderlyingErrorKey] as? Failure) ?? $0
-        }
     }
 }
 
@@ -79,26 +62,4 @@ extension Binding where Value: Equatable {
             state[keyPath] = value
         })
     }
-}
-
-// MARK: - Cancellation
-
-class CancelBag {
-    var subscriptions = Set<AnyCancellable>()
-
-    func cancelAll() {
-        subscriptions.forEach { $0.cancel() }
-    }
-}
-
-extension AnyCancellable {
-    func store(in cancelBag: CancelBag) {
-        cancelBag.subscriptions.insert(self)
-    }
-}
-
-// MARK: - Disposable
-
-protocol Disposable {
-    mutating func dispose()
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum RoutePath: String {
+enum RoutePath {
     case root
     case onboarding
     case feed

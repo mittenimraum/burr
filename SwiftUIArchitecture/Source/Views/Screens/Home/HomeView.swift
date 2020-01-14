@@ -13,17 +13,20 @@ struct HomeView: View {
     // MARK: - Variables
 
     var interactor: HomeInteractable
+
+    //
     var body: some View {
-        TabView {
-            feedPresenter(self.interactor.store, "swiftui")
-                .tabItem {
-                    Image(uiImage: "#".image(
-                        withAttributes:
-                        [.font: UIFont.systemFont(ofSize: 24, weight: .bold)]
-                    ))
-                    Text("swiftui")
-                }.tag(0)
-        }.accentColor(Color(Interface.Colors.secondary))
+        Switch {
+            Route(path: RoutePath.feed.id) { _ in
+                TabView {
+                    feedPresenter(self.interactor.store, "swiftui")
+                        .tabItem {
+                            Image(uiImage: "#".image(withAttributes: [.font: UIFont.systemFont(ofSize: 24, weight: .bold)]))
+                            Text("swiftui")
+                        }.tag(0)
+                }.accentColor(Color(Interface.Colors.secondary))
+            }
+        }
     }
 }
 

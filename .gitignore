@@ -83,3 +83,6 @@ Credentials.xcconfig
 
 # Icons
 Icon^M^M
+
+# Layout
+.psd

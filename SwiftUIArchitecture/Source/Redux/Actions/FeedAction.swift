@@ -11,20 +11,11 @@ import Foundation
 import SwiftUIRouter
 import TinyNetworking
 
-enum FeedAction: Networkable {
+enum FeedAction: Reducable, Networkable {
     // MARK: - Cases
 
     case fetch(term: String, TwitterAPI.Pagination, CancelBag)
     case refresh(term: String, TwitterAPI.Pagination, CancelBag)
-
-    // MARK: - Identifier
-
-    var id: String {
-        switch self {
-        case .fetch: return "FETCH"
-        case .refresh: return "REFRESH"
-        }
-    }
 
     // MARK: - Reducer
 
@@ -47,25 +38,22 @@ enum FeedAction: Networkable {
         twitterAPI.requestPublisher(resource: .search(term: term, pagination), queue: .global(qos: .userInitiated))
             .tryMap { try $0.map(to: TwitterResponse.self) }
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { result in
+            .sinkToResult { result in
                 switch result {
+                case let .success(value):
+                    store.reduce { state in
+                        guard let array = value.statuses else {
+                            return
+                        }
+                        state.feed.items = .success(array)
+                    }
+                    pagination.take(value.nextMaxId)
                 case let .failure(error):
                     store.reduce { state in
                         state.feed.items = .error(error)
                     }
-
-                default:
-                    break
                 }
-            }, receiveValue: { value in
-                store.reduce { state in
-                    guard let array = value.statuses else {
-                        return
-                    }
-                    state.feed.items = .success(array)
-                }
-                pagination.take(value.nextMaxId)
-            })
+            }
             .store(in: bag)
     }
 }

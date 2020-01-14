@@ -23,6 +23,7 @@ struct FeedView: View {
 
     @State private var isPullToRefreshing = false
     @State private var triggerViewRendering = 0
+    @State private var url: URL?
 
     // MARK: - Body
 
@@ -32,16 +33,27 @@ struct FeedView: View {
                 self.content(reader)
                     .modifier(FeedHeaderView(title: self.interactor.title, action: self.addNewHashtag))
             }
-            .background(PullToRefresh(action: {
-                self.interactor.refresh()
-            }, isShowing: self.$isPullToRefreshing))
             .id(self.id)
+            .background(
+                PullToRefresh(action: {
+                    self.interactor.refresh()
+                }, isShowing: self.$isPullToRefreshing)
+            )
+            .sheet(
+                item: self.$url,
+                content: { value in
+                    WebLinkView(url: value)
+                }
+            )
         }
         .onAppear {
             self.interactor.subscribe()
         }
         .onDisappear {
             self.interactor.unsubscribe()
+        }
+        .onReceive(self.interactor.url) { _ in
+            self.url = self.interactor.url.value
         }
     }
 
@@ -59,9 +71,9 @@ struct FeedView: View {
                     self.interactor.fetch()
                 },
                 content: {
-                    ForEach(items, id: \.self) { item in
+                    ForEach(items, id: \.status) { item in
                         VStack {
-                            FeedTweetCell(
+                            FeedCell(
                                 item: item,
                                 idealWidth: reader.size.width
                                     - Interface.Spacing.Feed.List.leading

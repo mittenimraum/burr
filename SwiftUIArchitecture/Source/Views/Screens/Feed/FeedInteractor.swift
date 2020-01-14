@@ -10,7 +10,7 @@ import Combine
 import Foundation
 import SwiftUI
 
-class FeedInteractor: Networkable, ObservableObject {
+class FeedInteractor: ObservableObject {
     // MARK: - Constants
 
     let store: AppStore
@@ -20,7 +20,11 @@ class FeedInteractor: Networkable, ObservableObject {
 
     // MARK: - Variables
 
-    @Published var status: ListStatus<[TwitterStatus]> = .initial
+    var url: Observable<URL?> = Observable(nil)
+
+    // MARK: - Variables <Published>
+
+    @Published var status: ListStatus<[FeedItem]> = .initial
 
     // MARK: - Variables <Computed>
 
@@ -48,16 +52,41 @@ class FeedInteractor: Networkable, ObservableObject {
         fetch()
     }
 
+    // MARK: - DataSource
+
+    func data(for items: [TwitterStatus]) -> [FeedItem] {
+        var previousItems = status.value?.compactMap { $0.status } ?? []
+
+        if pagination.isAtStart, previousItems != items {
+            previousItems = []
+        }
+        items.forEach {
+            guard previousItems.contains($0) == false else {
+                return
+            }
+            previousItems.append($0)
+        }
+        return previousItems.map { FeedItem(status: $0, open: open()) }
+    }
+
     // MARK: - Actions
 
     func refresh() {
-        FeedAction.refresh(term: term, pagination.start(), actionBag).reduce(store: store)
+        store.dispatch(FeedAction.refresh(term: term, pagination.start(), actionBag))
     }
 
     func fetch() {
-        FeedAction.fetch(term: term, pagination, actionBag).reduce(store: store)
+        store.dispatch(FeedAction.fetch(term: term, pagination, actionBag))
+    }
+
+    func open() -> Action<String> {
+        return Action { [weak self] value in
+            self?.url.value = URL(string: value)
+        }
     }
 }
+
+// MARK: - StoreSubscriber
 
 extension FeedInteractor: StoreSubscriber {
     func subscribe() {
@@ -67,19 +96,7 @@ extension FeedInteractor: StoreSubscriber {
     func newState(state: FeedState) {
         switch state.items {
         case let .success(items):
-            var previousItems = status.value ?? []
-
-            if pagination.isAtStart, previousItems != items {
-                previousItems = []
-            }
-            items.forEach {
-                guard previousItems.contains($0) == false else {
-                    return
-                }
-                previousItems.append($0)
-            }
-            status = .success(previousItems)
-
+            status = .success(data(for: items))
         case let .error(error):
             status = .error(error)
         default:

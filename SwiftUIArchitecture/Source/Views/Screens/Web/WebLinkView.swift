@@ -11,9 +11,15 @@ import SwiftUI
 struct WebLinkView: View {
     // MARK: - Variables
 
-    @ObservedObject var webViewStore = WebViewStore()
-    @Environment(\.presentationMode) var presentationMode
     var url: URL?
+
+    // MARK: - Variables <Environment>
+
+    @Environment(\.presentationMode) var presentationMode
+
+    // MARK: - Variables <Oberved>
+
+    @ObservedObject var webViewStore = WebViewStore()
 
     // MARK: - Variables <Private>
 

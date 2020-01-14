@@ -40,11 +40,11 @@ struct RouterView<Content: View>: View {
                         guard let path = RoutePath(id: self.history.path) else {
                             return
                         }
-                        RouteAction.setPath(path).reduce(store: self.store)
+                        self.store.dispatch(RouteAction.setPath(path))
                     }
                 }.store(in: self.bag)
-                RouteAction.setHistory(self.history).reduce(store: self.store)
-                RouteAction.setPath(self.store.value.route.path).reduce(store: self.store)
+                self.store.dispatch(RouteAction.setHistory(self.history))
+                self.store.dispatch(RouteAction.setPath(self.store.value.route.path))
             }
             .modifier(StoreContainer.Injector(container: StoreContainer(store: store)))
     }

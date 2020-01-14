@@ -9,20 +9,11 @@
 import Foundation
 import SwiftUIRouter
 
-enum RouteAction {
+enum RouteAction: Reducable {
     // MARK: - Cases
 
     case setPath(RoutePath)
     case setHistory(HistoryData)
-
-    // MARK: - Identifier
-
-    var id: String {
-        switch self {
-        case .setPath: return "SET_PATH"
-        case .setHistory: return "SET_HISTORY"
-        }
-    }
 
     // MARK: - Reducer
 
