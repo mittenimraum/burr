@@ -6,7 +6,7 @@
 //  Copyright © 2020 Stephan Schulz. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 import UIKit
 
 extension Interface {
@@ -15,15 +15,25 @@ extension Interface {
 
         struct Fonts {
             struct Regular {
-                static let leading: CGFloat = 12
+                static let leading: CGFloat = 8
             }
         }
 
-        struct Feed {
+        struct General {
             struct List {
-                static let leading: CGFloat = 20
-                static let trailing: CGFloat = 20
+                static let leading: CGFloat = 24
+                static let trailing: CGFloat = 24
             }
+        }
+
+        struct Onboarding {
+            static let spacing: CGFloat = 40
+            static let padding = EdgeInsets(
+                top: 80,
+                leading: General.List.leading,
+                bottom: 0,
+                trailing: General.List.trailing
+            )
         }
     }
 }

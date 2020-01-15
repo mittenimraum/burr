@@ -67,6 +67,7 @@
 		D4C4154523C63F8100EFAA98 /* FeedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4154423C63F8100EFAA98 /* FeedAction.swift */; };
 		D4C4154F23C679DF00EFAA98 /* Foundation+DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4154E23C679DF00EFAA98 /* Foundation+DispatchQueue.swift */; };
 		D4CFBAFA23CF245C002542D6 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFBAF923CF245C002542D6 /* AccountService.swift */; };
+		D4CFBAFC23CF48B8002542D6 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFBAFB23CF48B8002542D6 /* TextFieldView.swift */; };
 		D4D0BF7D23CB70E7003BFFF5 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0BF7C23CB70E7003BFFF5 /* Store.swift */; };
 		D4D0BF7F23CB7394003BFFF5 /* StoreContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0BF7E23CB7394003BFFF5 /* StoreContainer.swift */; };
 		D4DD899123C4AA2200179696 /* SwiftUIArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DD899023C4AA2200179696 /* SwiftUIArchitectureTests.swift */; };
@@ -158,6 +159,7 @@
 		D4C4154423C63F8100EFAA98 /* FeedAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAction.swift; sourceTree = "<group>"; };
 		D4C4154E23C679DF00EFAA98 /* Foundation+DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+DispatchQueue.swift"; sourceTree = "<group>"; };
 		D4CFBAF923CF245C002542D6 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		D4CFBAFB23CF48B8002542D6 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		D4D0BF7C23CB70E7003BFFF5 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		D4D0BF7E23CB7394003BFFF5 /* StoreContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreContainer.swift; sourceTree = "<group>"; };
 		D4DD897623C4AA1F00179696 /* burr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = burr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -507,6 +509,7 @@
 				D45AD86723C73F3C00438F1C /* AttributedTextBuilder.swift */,
 				D4712DCB23C8BA83007B6034 /* InfinityList.swift */,
 				D4AD4BAD23CB9E9C00BDB356 /* ShareSheet.swift */,
+				D4CFBAFB23CF48B8002542D6 /* TextFieldView.swift */,
 				D4AD4BA823CB9B2B00BDB356 /* WebView.swift */,
 			);
 			path = Components;
@@ -781,6 +784,7 @@
 				D47EBF5923CE03F300711F30 /* Combine+Publisher.swift in Sources */,
 				D4F7ACBC23C529240039A840 /* RouterView.swift in Sources */,
 				D4C4153C23C6370600EFAA98 /* TwitterResponse.swift in Sources */,
+				D4CFBAFC23CF48B8002542D6 /* TextFieldView.swift in Sources */,
 				D475BA6223CBBD390061733A /* assets-images.swift in Sources */,
 				D4267D2B23C6052200632BA3 /* TwitterAPI.swift in Sources */,
 				D4C4153723C62BD100EFAA98 /* Domain.swift in Sources */,

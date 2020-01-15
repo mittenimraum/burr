@@ -16,6 +16,7 @@ struct Interface {
         coloredNavAppearance.backgroundColor = .white
 
         UINavigationBar.appearance().standardAppearance = coloredNavAppearance
+        UITableView.appearance().separatorStyle = .none
         UITableView.appearance().separatorColor = .clear
     }
 }

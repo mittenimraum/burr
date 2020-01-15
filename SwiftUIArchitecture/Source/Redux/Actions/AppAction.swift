@@ -7,10 +7,17 @@
 //
 
 enum AppAction: Reducable, Accountable {
+    case addHashtag(String)
     case setHashtags([String])
 
     func reduce(store: AppStore) {
         switch self {
+        case let .addHashtag(hashtag):
+            let hashtags = accountService.addHashtag(hashtag)
+
+            store.reduce { state in
+                state.hashtags = hashtags
+            }
         case let .setHashtags(hashtags):
             accountService.hashtags = hashtags
 

@@ -29,6 +29,7 @@ public final class AttributedText: UIViewRepresentable {
     public func makeUIView(context _: UIViewRepresentableContext<AttributedText>) -> AttributedTextView {
         let textView = AutosizableAttributedTextView(frame: CGRect(x: 0, y: 0, width: idealWidth, height: 1))
         textView.backgroundColor = .clear
+        textView.isEditable = false
         textView.linkTextAttributes = [
             NSAttributedString.Key.foregroundColor: Interface.Colors.secondary,
             NSAttributedString.Key.underlineColor: Interface.Colors.secondary,

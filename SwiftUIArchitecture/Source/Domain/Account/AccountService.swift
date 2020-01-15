@@ -22,6 +22,15 @@ class AccountService {
 
     @UserDefault(key: Preferences.hashtags.rawValue, defaultValue: nil)
     var hashtags: [String]?
+
+    // MARK: - Methods
+
+    func addHashtag(_ hashtag: String) -> [String] {
+        var array = hashtags ?? []
+        array.append(hashtag)
+        hashtags = array
+        return array
+    }
 }
 
 // MARK: - Accountable

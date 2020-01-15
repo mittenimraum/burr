@@ -11,9 +11,14 @@ import UIKit
 
 extension Interface {
     struct Fonts {
-        static let regular = UIFont(name: "HelveticaNeue", size: 20)
-        static let medium = UIFont(name: "HelveticaNeue-Medium", size: 24)
-        static let semibold = UIFont(name: "HelveticaNeue-Bold", size: 24)
-        static let bold = UIFont(name: "HelveticaNeue-CondensedBlack", size: 24)
+        struct Sizes {
+            static let body: CGFloat = 24
+            static let title: CGFloat = 28
+        }
+
+        static let regular = UIFont(name: "HelveticaNeue", size: Sizes.body)
+        static let medium = UIFont(name: "HelveticaNeue-Medium", size: Sizes.body)
+        static let semibold = UIFont(name: "HelveticaNeue-Bold", size: Sizes.title)
+        static let bold = UIFont(name: "HelveticaNeue-CondensedBlack", size: Sizes.title)
     }
 }

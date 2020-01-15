@@ -33,8 +33,8 @@ class AppCoordinator {
     }
 
     private func initializeDefaults() {
-        let hashtags = Domain.accountService.hashtags ?? ["swiftui"]
-
+        let hashtags = Domain.accountService.hashtags ?? []
         store.dispatch(AppAction.setHashtags(hashtags))
+        store.dispatch(RouteAction.setPath(hashtags.isEmpty ? .onboarding : .feed))
     }
 }

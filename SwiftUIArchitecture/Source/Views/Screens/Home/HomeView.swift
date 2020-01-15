@@ -23,7 +23,7 @@ struct HomeView: View {
                     ForEach(self.interactor.hashtags.indices, id: \.self) { index in
                         feedPresenter(self.interactor.store, self.interactor.hashtags[index])
                             .tabItem {
-                                Image(uiImage: "#".image(withAttributes: [.font: UIFont.systemFont(ofSize: 24, weight: .bold)]))
+                                Image(uiImage: "#".image(withAttributes: [.font: UIFont.systemFont(ofSize: Interface.Fonts.Sizes.body, weight: .bold)]))
                                 Text(self.interactor.hashtags[index])
                             }
                             .tag(index)

@@ -76,8 +76,8 @@ struct FeedView: View {
                             FeedCell(
                                 item: item,
                                 idealWidth: reader.size.width
-                                    - Interface.Spacing.Feed.List.leading
-                                    - Interface.Spacing.Feed.List.trailing
+                                    - Interface.Spacing.General.List.leading
+                                    - Interface.Spacing.General.List.trailing
                             )
                             Divider()
                         }
@@ -103,8 +103,8 @@ struct FeedView: View {
                         .multilineTextAlignment(.center)
                 }
                 .frame(width: reader.size.width
-                    - Interface.Spacing.Feed.List.leading
-                    - Interface.Spacing.Feed.List.trailing)
+                    - Interface.Spacing.General.List.leading
+                    - Interface.Spacing.General.List.trailing)
             }
             .environment(\.defaultMinListRowHeight, reader.size.height
                 - reader.frame(in: .global).origin.y
