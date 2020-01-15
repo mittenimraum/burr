@@ -6,6 +6,7 @@
 //  Copyright © 2020 Stephan Schulz. All rights reserved.
 //
 
+import Foundation
 import SwiftUIRouter
 
 // MARK: - AppCoordinator
@@ -24,9 +25,16 @@ class AppCoordinator {
         router = Router(content: { routerView })
 
         initializeStyling()
+        initializeDefaults()
     }
 
     private func initializeStyling() {
         Interface.applyStyling()
+    }
+
+    private func initializeDefaults() {
+        let hashtags = Domain.accountService.hashtags ?? ["swiftui"]
+
+        store.dispatch(AppAction.setHashtags(hashtags))
     }
 }

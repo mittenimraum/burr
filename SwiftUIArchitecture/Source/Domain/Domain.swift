@@ -11,4 +11,5 @@ import TinyNetworking
 
 struct Domain {
     static var twitterAPI = TinyNetworking<TwitterAPI>()
+    static var accountService = AccountService()
 }

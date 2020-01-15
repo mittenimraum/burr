@@ -93,8 +93,8 @@ extension FeedInteractor: StoreSubscriber {
         subscribe(to: \.feed)
     }
 
-    func newState(state: FeedState) {
-        switch state.items {
+    func newState(value: FeedState) {
+        switch value.items {
         case let .success(items):
             status = .success(data(for: items))
         case let .error(error):

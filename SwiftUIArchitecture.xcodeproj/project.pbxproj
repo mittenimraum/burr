@@ -68,6 +68,7 @@
 		D4C4154523C63F8100EFAA98 /* FeedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4154423C63F8100EFAA98 /* FeedAction.swift */; };
 		D4C4154A23C6607600EFAA98 /* StoreSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4154923C6607600EFAA98 /* StoreSubscriber.swift */; };
 		D4C4154F23C679DF00EFAA98 /* Foundation+DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4154E23C679DF00EFAA98 /* Foundation+DispatchQueue.swift */; };
+		D4CFBAFA23CF245C002542D6 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFBAF923CF245C002542D6 /* AccountService.swift */; };
 		D4D0BF7D23CB70E7003BFFF5 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0BF7C23CB70E7003BFFF5 /* Store.swift */; };
 		D4D0BF7F23CB7394003BFFF5 /* StoreContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0BF7E23CB7394003BFFF5 /* StoreContainer.swift */; };
 		D4DD899123C4AA2200179696 /* SwiftUIArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DD899023C4AA2200179696 /* SwiftUIArchitectureTests.swift */; };
@@ -160,6 +161,7 @@
 		D4C4154423C63F8100EFAA98 /* FeedAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAction.swift; sourceTree = "<group>"; };
 		D4C4154923C6607600EFAA98 /* StoreSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSubscriber.swift; sourceTree = "<group>"; };
 		D4C4154E23C679DF00EFAA98 /* Foundation+DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+DispatchQueue.swift"; sourceTree = "<group>"; };
+		D4CFBAF923CF245C002542D6 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		D4D0BF7C23CB70E7003BFFF5 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		D4D0BF7E23CB7394003BFFF5 /* StoreContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreContainer.swift; sourceTree = "<group>"; };
 		D4DD897623C4AA1F00179696 /* burr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = burr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -363,6 +365,14 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		D4CFBAF823CF244B002542D6 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				D4CFBAF923CF245C002542D6 /* AccountService.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		D4DD896D23C4AA1F00179696 = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +466,7 @@
 		D4DD89C223C4AD8000179696 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				D4CFBAF823CF244B002542D6 /* Account */,
 				D4AD4BB123CBA68100BDB356 /* Activities */,
 				D4C4153623C62BD100EFAA98 /* Domain.swift */,
 				D4A43A8A23C5DD8A0052821F /* Credentials */,
@@ -754,6 +765,7 @@
 				D45AD87323C7444900438F1C /* Interface+Colors.swift in Sources */,
 				D45AD87E23C7D2A100438F1C /* SwiftUI+View.swift in Sources */,
 				D4A43A7D23C5CADE0052821F /* OnboardingInteractor.swift in Sources */,
+				D4CFBAFA23CF245C002542D6 /* AccountService.swift in Sources */,
 				D47EBF5D23CE04AA00711F30 /* Combine+Cancellable.swift in Sources */,
 				D480E4F123C8EE910060B3E9 /* ActivityIndicator.swift in Sources */,
 				D49D201023C4FD1F00483FDC /* OnboardingView.swift in Sources */,

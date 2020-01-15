@@ -10,12 +10,12 @@ import Combine
 import Foundation
 
 protocol StoreSubscriber {
-    associatedtype StateType: Equatable
+    associatedtype StoreValue: Equatable
 
     var store: AppStore { get }
     var storeBag: CancelBag { get }
 
-    func newState(state: StateType)
+    func newState(value: StoreValue)
     func subscribe()
     func unsubscribe()
 }
@@ -23,11 +23,11 @@ protocol StoreSubscriber {
 extension StoreSubscriber {
     func subscribe<Value>(to keyPath: KeyPath<AppState, Value>) where Value: Equatable {
         store
-            .subscribe(for: keyPath).sink { state in
-                guard let state = state as? StateType else {
+            .subscribe(for: keyPath).sink { result in
+                guard let value = result as? StoreValue else {
                     return
                 }
-                self.newState(state: state)
+                self.newState(value: value)
             }
             .store(in: storeBag)
     }

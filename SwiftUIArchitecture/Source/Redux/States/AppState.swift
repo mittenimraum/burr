@@ -11,4 +11,5 @@ import SwiftUIRouter
 struct AppState: Equatable, Codable {
     var route: RouteState = RouteState()
     var feed: FeedState = FeedState()
+    var hashtags: [String] = []
 }

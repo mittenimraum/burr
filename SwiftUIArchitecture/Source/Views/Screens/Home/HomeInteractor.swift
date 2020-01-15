@@ -6,16 +6,32 @@
 //  Copyright © 2020 Stephan Schulz. All rights reserved.
 //
 
+import Combine
 import Foundation
 
-protocol HomeInteractable {
-    var store: AppStore { get }
-}
+class HomeInteractor: ObservableObject {
+    // MARK: - Constants
 
-struct HomeInteractor: HomeInteractable {
     let store: AppStore
+    let storeBag = CancelBag()
+
+    // MARK: - Variables
+
+    @Published var hashtags: [String] = []
+
+    // MARK: - Init
 
     init(store: AppStore) {
         self.store = store
+    }
+}
+
+extension HomeInteractor: StoreSubscriber {
+    func subscribe() {
+        subscribe(to: \.hashtags)
+    }
+
+    func newState(value: [String]) {
+        hashtags = value
     }
 }

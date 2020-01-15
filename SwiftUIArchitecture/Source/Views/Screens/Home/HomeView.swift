@@ -12,20 +12,29 @@ import SwiftUIRouter
 struct HomeView: View {
     // MARK: - Variables
 
-    var interactor: HomeInteractable
+    @ObservedObject var interactor: HomeInteractor
 
-    //
+    // MARK: - Body
+
     var body: some View {
         Switch {
             Route(path: RoutePath.feed.id) { _ in
                 TabView {
-                    feedPresenter(self.interactor.store, "swiftui")
-                        .tabItem {
-                            Image(uiImage: "#".image(withAttributes: [.font: UIFont.systemFont(ofSize: 24, weight: .bold)]))
-                            Text("swiftui")
-                        }.tag(0)
-                }.accentColor(Color(Interface.Colors.secondary))
+                    ForEach(self.interactor.hashtags.indices, id: \.self) { index in
+                        feedPresenter(self.interactor.store, self.interactor.hashtags[index])
+                            .tabItem {
+                                Image(uiImage: "#".image(withAttributes: [.font: UIFont.systemFont(ofSize: 24, weight: .bold)]))
+                                Text(self.interactor.hashtags[index])
+                            }
+                            .tag(index)
+                    }
+                }
+                .accentColor(Color(Interface.Colors.secondary))
             }
+        }.onAppear {
+            self.interactor.subscribe()
+        }.onDisappear {
+            self.interactor.unsubscribe()
         }
     }
 }
