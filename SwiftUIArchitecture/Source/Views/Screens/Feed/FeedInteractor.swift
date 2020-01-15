@@ -32,6 +32,10 @@ class FeedInteractor: ObservableObject {
         return false
     }
 
+    var shouldShowRemove: Bool {
+        return store.value.hashtags.count > 1
+    }
+
     var title: String {
         return "#\(hashtag)"
     }
@@ -68,12 +72,20 @@ class FeedInteractor: ObservableObject {
 
     // MARK: - Actions
 
+    func remove() {
+        store.dispatch(AppAction.removeHashtag(hashtag))
+    }
+
     func refresh() {
         store.dispatch(FeedAction.refresh(hashtag: hashtag, pagination.start(), actionBag))
     }
 
     func fetch() {
         store.dispatch(FeedAction.fetch(hashtag: hashtag, pagination, actionBag))
+    }
+
+    func select() {
+        store.dispatch(AppAction.selectHashtag(hashtag))
     }
 
     func open() -> Action<String> {

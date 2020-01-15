@@ -13,13 +13,23 @@ import SwiftUIRouter
 struct FeedView: View {
     // MARK: - Enums
 
+    enum Actionsheet: Identifiable {
+        case removeHashtag
+
+        var id: String {
+            switch self {
+            case .removeHashtag: return "removeHashtag"
+            }
+        }
+    }
+
     enum Sheet: Identifiable {
-        case addNewHashtag
+        case addHashtag
         case webPreview(URL)
 
         var id: String {
             switch self {
-            case .addNewHashtag: return "addNewHashtag"
+            case .addHashtag: return "addHashtag"
             case .webPreview: return "webPreview"
             }
         }
@@ -34,6 +44,7 @@ struct FeedView: View {
     @State private var isPullToRefreshing = false
     @State private var triggerViewRendering = 0
     @State private var modal: Sheet?
+    @State private var actionsheet: Actionsheet?
 
     // MARK: - Body
 
@@ -41,7 +52,12 @@ struct FeedView: View {
         GeometryReader { reader in
             NavigationView {
                 self.content(reader)
-                    .modifier(FeedHeaderView(title: self.interactor.title, action: self.addNewHashtag))
+                    .modifier(FeedHeaderView(
+                        title: self.interactor.title,
+                        add: self.addHashtag,
+                        remove: self.removeHashtag,
+                        shouldShowRemove: self.interactor.shouldShowRemove
+                    ))
             }
             .padding(Interface.Spacing.Feed.padding)
             .id(self.interactor.hashtag)
@@ -59,9 +75,13 @@ struct FeedView: View {
                     self.view(for: value)
                 }
             )
+            .actionSheet(item: self.$actionsheet) { value in
+                self.view(for: value)
+            }
         }
         .onAppear {
             self.interactor.subscribe()
+            self.interactor.select()
         }
         .onDisappear {
             self.interactor.unsubscribe()
@@ -102,7 +122,12 @@ struct FeedView: View {
                             Divider()
                         }
                     }
-                    .modifier(FeedHeaderView(title: self.interactor.title, action: self.addNewHashtag))
+                    .modifier(FeedHeaderView(
+                        title: self.interactor.title,
+                        add: self.addHashtag,
+                        remove: self.removeHashtag,
+                        shouldShowRemove: self.interactor.shouldShowRemove
+                    ))
                 }
             )
             .passthrough { _ in
@@ -142,37 +167,55 @@ struct FeedView: View {
 
     private func view(for sheet: Sheet) -> AnyView {
         switch sheet {
-        case .addNewHashtag:
+        case .addHashtag:
             return AnyView(onboardingPresenter(interactor.store))
         case let .webPreview(url):
             return AnyView(WebLinkView(url: url))
         }
     }
 
-    private func addNewHashtag() {
-        modal = .addNewHashtag
+    private func view(for actionsheet: Actionsheet) -> ActionSheet {
+        switch actionsheet {
+        case .removeHashtag:
+            return ActionSheet(
+                title: Text("#\(interactor.hashtag)"),
+                message: Text("Do you really want to remove the hashtag?"),
+                buttons: [.destructive(Text("Yes"), action: interactor.remove), .default(Text("Cancel"))]
+            )
+        }
+    }
+
+    private func removeHashtag() {
+        actionsheet = .removeHashtag
+    }
+
+    private func addHashtag() {
+        modal = .addHashtag
     }
 }
 
 struct FeedHeaderView: ViewModifier {
     var title: String
-    var action: () -> Void
+    var add: () -> Void
+    var remove: () -> Void
+    var shouldShowRemove: Bool
 
     func body(content: Content) -> some View {
         content
-            .navigationBarItems(trailing:
+            .navigationBarItems(
+                trailing:
                 HStack {
-                    Button(
-                        action: {
-                            self.action()
-                        },
-                        label: {
-                            Image(systemName: "plus")
-                        }
-                    )
-                    .frame(width: 30, alignment: .center)
-                    .foregroundColor(Color(Interface.Colors.primary))
-            })
+                    if shouldShowRemove {
+                        Button(action: { self.remove() }, label: { Image(systemName: "minus") })
+                            .frame(width: 30, alignment: .center)
+                            .foregroundColor(Color(Interface.Colors.primary))
+                            .opacity(0.15)
+                    }
+                    Button(action: { self.add() }, label: { Image(systemName: "plus") })
+                        .frame(width: 30, alignment: .center)
+                        .foregroundColor(Color(Interface.Colors.primary))
+                }
+            )
             .navigationBarTitle(title)
     }
 }

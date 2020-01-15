@@ -41,7 +41,8 @@ struct HomeView: View {
             self.interactor.subscribe()
         }.onDisappear {
             self.interactor.unsubscribe()
-        }.onReceive(self.interactor.selected) { value in
+        }
+        .onReceive(self.interactor.selected) { value in
             self.selectedIndex = value
             // Refresh the TabView by setting a new id, otherwise
             // the tab content won't be rendered for some reason

@@ -25,10 +25,23 @@ class AccountService {
 
     // MARK: - Methods
 
-    func addHashtag(_ hashtag: String) -> [String] {
+    func add(hashtag: String) -> [String] {
         var array = hashtags ?? []
         array.append(hashtag)
         hashtags = array
+        return array
+    }
+
+    func remove(hashtag: String) -> [String] {
+        guard let hashtags = hashtags else {
+            return []
+        }
+        guard let index = hashtags.firstIndex(of: hashtag) else {
+            return hashtags
+        }
+        var array = hashtags
+        array.remove(at: index)
+        self.hashtags = array
         return array
     }
 }

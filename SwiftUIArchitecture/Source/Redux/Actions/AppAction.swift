@@ -10,6 +10,7 @@ enum AppAction: Reducable, Accountable {
     case addHashtag(String)
     case setHashtags([String])
     case selectHashtag(String)
+    case removeHashtag(String)
 
     func reduce(store: AppStore) {
         switch self {
@@ -20,8 +21,15 @@ enum AppAction: Reducable, Accountable {
             store.reduce { state in
                 state.selected = index
             }
+        case let .removeHashtag(hashtag):
+            let hashtags = accountService.remove(hashtag: hashtag)
+
+            store.reduce { state in
+                state.hashtags = hashtags
+                state.selected = max(0, state.selected - 1)
+            }
         case let .addHashtag(hashtag):
-            let hashtags = accountService.addHashtag(hashtag)
+            let hashtags = accountService.add(hashtag: hashtag)
 
             store.reduce { state in
                 state.hashtags = hashtags

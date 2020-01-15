@@ -15,6 +15,7 @@ struct Interface {
         coloredNavAppearance.configureWithOpaqueBackground()
         coloredNavAppearance.backgroundColor = .white
 
+        UIView.appearance().tintColor = .black
         UINavigationBar.appearance().standardAppearance = coloredNavAppearance
         UITableView.appearance().separatorStyle = .none
         UITableView.appearance().separatorColor = .clear
