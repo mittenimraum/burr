@@ -13,14 +13,14 @@ import TinyNetworking
 // MARK: - TwitterAPI
 
 enum TwitterAPI {
-    case search(term: String, Pagination)
+    case search(query: String, Pagination)
 }
 
 // MARK: - Parameters / Headers
 
 extension TwitterAPI {
     enum Parameters: String {
-        case term = "q"
+        case query = "q"
         case count
         case maxId = "max_id"
     }
@@ -84,9 +84,9 @@ extension TwitterAPI: Resource {
         var parameters: [String: Any] = [:]
 
         switch self {
-        case let .search(term, pagination):
+        case let .search(query, pagination):
             parameters[Parameters.count.rawValue] = pagination.size
-            parameters[Parameters.term.rawValue] = "\(term) -RT" // without retweets
+            parameters[Parameters.query.rawValue] = "\(query) -RT" // without retweets
 
             if let page = pagination.page {
                 parameters[Parameters.maxId.rawValue] = page

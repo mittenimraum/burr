@@ -244,8 +244,8 @@
 			isa = PBXGroup;
 			children = (
 				D45AD86E23C743FC00438F1C /* Interface.swift */,
-				D45AD87023C7441C00438F1C /* Interface+Fonts.swift */,
 				D45AD87223C7444900438F1C /* Interface+Colors.swift */,
+				D45AD87023C7441C00438F1C /* Interface+Fonts.swift */,
 				D45AD87623C7463B00438F1C /* Interface+Spacing.swift */,
 			);
 			path = Style;

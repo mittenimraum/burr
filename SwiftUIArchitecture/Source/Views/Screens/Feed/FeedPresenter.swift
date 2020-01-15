@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-func feedPresenter(_ store: AppStore, _ term: String) -> FeedView {
-    let interactor = FeedInteractor(store: store, term: term)
+func feedPresenter(_ store: AppStore, _ hashtag: String) -> FeedView {
+    let interactor = FeedInteractor(store: store, hashtag: hashtag)
 
     return FeedView(interactor: interactor)
 }

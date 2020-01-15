@@ -14,13 +14,10 @@ class FeedInteractor: ObservableObject {
     // MARK: - Constants
 
     let store: AppStore
-    let term: String
+    let hashtag: String
     let storeBag: CancelBag = CancelBag()
     let actionBag: CancelBag = CancelBag()
-
-    // MARK: - Variables
-
-    var url: Observable<URL?> = Observable(nil)
+    let url: Observable<URL?> = Observable(nil)
 
     // MARK: - Variables <Published>
 
@@ -29,14 +26,14 @@ class FeedInteractor: ObservableObject {
     // MARK: - Variables <Computed>
 
     var shouldLoadMore: Bool {
-        if case .success = store.value.feed.items {
+        if case .success = store.value.feed.items[hashtag] {
             return true
         }
         return false
     }
 
     var title: String {
-        return "#\(term)"
+        return "#\(hashtag)"
     }
 
     // MARK: - Variables <Private>
@@ -45,9 +42,9 @@ class FeedInteractor: ObservableObject {
 
     // MARK: - Init
 
-    init(store: AppStore, term: String) {
+    init(store: AppStore, hashtag: String) {
         self.store = store
-        self.term = term
+        self.hashtag = hashtag
 
         fetch()
     }
@@ -72,11 +69,11 @@ class FeedInteractor: ObservableObject {
     // MARK: - Actions
 
     func refresh() {
-        store.dispatch(FeedAction.refresh(term: term, pagination.start(), actionBag))
+        store.dispatch(FeedAction.refresh(hashtag: hashtag, pagination.start(), actionBag))
     }
 
     func fetch() {
-        store.dispatch(FeedAction.fetch(term: term, pagination, actionBag))
+        store.dispatch(FeedAction.fetch(hashtag: hashtag, pagination, actionBag))
     }
 
     func open() -> Action<String> {
@@ -94,7 +91,7 @@ extension FeedInteractor: StoreSubscriber {
     }
 
     func newState(value: FeedState) {
-        switch value.items {
+        switch value.items[hashtag] {
         case let .success(items):
             status = .success(data(for: items))
         case let .error(error):

@@ -9,7 +9,13 @@
 import SwiftUIRouter
 
 struct AppState: Equatable, Codable {
+    // MARK: - States
+
     var route: RouteState = RouteState()
     var feed: FeedState = FeedState()
+
+    // MARK: - Variables
+
     var hashtags: [String] = []
+    var selected: Int = 0
 }

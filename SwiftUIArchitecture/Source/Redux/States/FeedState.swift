@@ -11,5 +11,5 @@ import Foundation
 struct FeedState: Codable, Equatable {
     // MARK: - Variables
 
-    var items = ListStatus<[TwitterStatus]>.initial
+    var items: [String: ListStatus<[TwitterStatus]>] = [:]
 }

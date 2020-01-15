@@ -25,10 +25,6 @@ struct FeedView: View {
         }
     }
 
-    // MARK: - Constants
-
-    let id = UUID()
-
     // MARK: - Variables
 
     @ObservedObject var interactor: FeedInteractor
@@ -48,11 +44,11 @@ struct FeedView: View {
                     .modifier(FeedHeaderView(title: self.interactor.title, action: self.addNewHashtag))
             }
             .padding(Interface.Spacing.Feed.padding)
-            .id(self.id)
+            .id(self.interactor.hashtag)
             .background(
                 PullToRefresh(action: {
                     self.interactor.refresh()
-                }, isShowing: self.$isPullToRefreshing).zIndex(-1)
+                }, isShowing: self.$isPullToRefreshing)
             )
             .sheet(
                 item: self.$modal,
@@ -128,7 +124,9 @@ struct FeedView: View {
                 }
                 .frame(width: reader.size.width
                     - Interface.Spacing.Feed.padding.leading
-                    - Interface.Spacing.Feed.padding.trailing)
+                    - Interface.Spacing.Feed.padding.trailing
+                    - Interface.Spacing.Feed.listInsets.leading
+                    - Interface.Spacing.Feed.listInsets.trailing)
             }
             .environment(\.defaultMinListRowHeight, reader.size.height
                 - reader.frame(in: .global).origin.y
@@ -181,6 +179,6 @@ struct FeedHeaderView: ViewModifier {
 
 struct FeedView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedView(interactor: FeedInteractor(store: AppStore(AppState()), term: "#hashtag"))
+        FeedView(interactor: FeedInteractor(store: AppStore(AppState()), hashtag: "hashtag"))
     }
 }

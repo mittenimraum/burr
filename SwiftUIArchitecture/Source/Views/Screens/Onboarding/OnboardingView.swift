@@ -49,6 +49,9 @@ struct OnboardingView: View {
                         ]))
                         TextFieldView(
                             done: { text in
+                                guard self.interactor.isValid(text) else {
+                                    return
+                                }
                                 self.interactor.done(text)
                                 self.presentationMode.wrappedValue.dismiss()
                             },

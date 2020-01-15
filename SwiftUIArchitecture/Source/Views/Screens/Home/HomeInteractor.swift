@@ -14,6 +14,7 @@ class HomeInteractor: ObservableObject {
 
     let store: AppStore
     let storeBag = CancelBag()
+    let selected = Observable<Int>(0)
 
     // MARK: - Variables
 
@@ -28,10 +29,15 @@ class HomeInteractor: ObservableObject {
 
 extension HomeInteractor: StoreSubscriber {
     func subscribe() {
-        subscribe(to: \.hashtags)
+        subscribe(to: \.self)
     }
 
-    func newState(value: [String]) {
-        hashtags = value
+    func newState(value: AppState) {
+        if hashtags != value.hashtags {
+            hashtags = value.hashtags
+        }
+        if selected.value != value.selected {
+            selected.value = value.selected
+        }
     }
 }

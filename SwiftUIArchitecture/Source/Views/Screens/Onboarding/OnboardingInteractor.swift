@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct OnboardingInteractor {
+struct OnboardingInteractor: Accountable {
     // MARK: - Constants
 
     let store: AppStore
@@ -35,8 +35,16 @@ struct OnboardingInteractor {
 
     // MARK: - Methods
 
+    func isValid(_ hashtag: String) -> Bool {
+        return accountService.hashtags?.contains(hashtag) == false
+    }
+
     func done(_ text: String) {
-        store.dispatch(AppAction.addHashtag(text))
         store.dispatch(RouteAction.setPath(.feed))
+
+        DispatchQueue.next {
+            self.store.dispatch(AppAction.addHashtag(text))
+            self.store.dispatch(AppAction.selectHashtag(text))
+        }
     }
 }

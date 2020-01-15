@@ -51,7 +51,7 @@ struct InfinityList<Content: View>: View {
     // MARK: - Methods
 
     private func processInfinity(_ change: ViewTreeFrameChanges, with reader: GeometryProxy) {
-        guard let tuple = change.first, tuple.value.height > reader.size.height else {
+        guard let tuple = change.first, tuple.value.height > reader.size.height * 2 else {
             return
         }
         let distance = max(0, tuple.value.origin.y + (tuple.value.height - reader.size.height))
