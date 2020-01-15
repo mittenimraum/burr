@@ -15,13 +15,6 @@ import SwiftUI
 
 typealias Store<State> = CurrentValueSubject<State, Never>
 
-protocol Reducable where Failure: Error {
-    associatedtype Output
-    associatedtype Failure
-
-    func reduce(store: CurrentValueSubject<Output, Failure>)
-}
-
 extension CurrentValueSubject {
     subscript<T>(keyPath: WritableKeyPath<Output, T>) -> T where T: Equatable {
         get {
@@ -61,5 +54,61 @@ extension Binding where Value: Equatable {
             self.wrappedValue = value
             state[keyPath] = value
         })
+    }
+}
+
+// MARK: - StoreSubscriber
+
+protocol StoreSubscriber {
+    associatedtype StoreState
+    associatedtype StoreValue: Equatable
+
+    var store: Store<StoreState> { get }
+    var storeBag: CancelBag { get }
+
+    func newState(value: StoreValue)
+    func subscribe()
+    func unsubscribe()
+}
+
+extension StoreSubscriber {
+    func subscribe<Value>(to keyPath: KeyPath<StoreState, Value>) where Value: Equatable {
+        store
+            .subscribe(for: keyPath).sink { result in
+                guard let value = result as? StoreValue else {
+                    return
+                }
+                self.newState(value: value)
+            }
+            .store(in: storeBag)
+    }
+
+    func unsubscribe() {
+        storeBag.cancelAll()
+    }
+}
+
+// MARK: - Reducable
+
+protocol Reducable where Failure: Error {
+    associatedtype Output
+    associatedtype Failure
+
+    func reduce(store: CurrentValueSubject<Output, Failure>)
+}
+
+// MARK: - CancelBag
+
+class CancelBag {
+    var subscriptions = Set<AnyCancellable>()
+
+    func cancelAll() {
+        subscriptions.forEach { $0.cancel() }
+    }
+}
+
+extension AnyCancellable {
+    func store(in cancelBag: CancelBag) {
+        cancelBag.subscriptions.insert(self)
     }
 }
