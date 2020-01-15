@@ -30,8 +30,8 @@ struct OnboardingView: View {
                 VStack(alignment: .center) {
                     AttributedText(idealWidth:
                         reader.size.width
-                            - Interface.Spacing.General.List.leading
-                            - Interface.Spacing.General.List.trailing) {
+                            - Interface.Spacing.Onboarding.padding.leading
+                            - Interface.Spacing.Onboarding.padding.trailing) {
                         Attributer(self.interactor.title)
                             .font(Interface.Fonts.medium?.withSize(Interface.Fonts.Sizes.title))
                             .color(Interface.Colors.primary)

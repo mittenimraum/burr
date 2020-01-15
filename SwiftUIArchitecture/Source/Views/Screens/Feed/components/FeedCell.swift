@@ -34,6 +34,7 @@ struct FeedCell: View {
                     self.item.open.run(link)
                 }
         }
+        .padding(EdgeInsets(top: 0, leading: -4, bottom: 0, trailing: 0))
     }
 
     static func attributer(for item: FeedItem) -> Attributer {

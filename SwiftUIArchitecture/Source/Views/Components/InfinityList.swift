@@ -14,6 +14,7 @@ import SwiftUI
 struct InfinityList<Content: View>: View {
     // MARK: - Constants
 
+    let insets: EdgeInsets
     let shouldTriggerBottom: () -> Bool
     let didReachBottom: (() -> Void)?
     let content: () -> Content
@@ -21,10 +22,12 @@ struct InfinityList<Content: View>: View {
     // MARK: - Init
 
     init(
+        insets: EdgeInsets = EdgeInsets(),
         shouldTriggerBottom: @escaping () -> Bool,
         didReachBottom: (() -> Void)?,
         @ViewBuilder content: @escaping () -> Content
     ) {
+        self.insets = insets
         self.shouldTriggerBottom = shouldTriggerBottom
         self.didReachBottom = didReachBottom
         self.content = content
@@ -35,7 +38,9 @@ struct InfinityList<Content: View>: View {
     var body: some View {
         GeometryReader { reader in
             List {
-                self.content().provideFrameChanges()
+                self.content()
+                    .listRowInsets(self.insets)
+                    .provideFrameChanges()
             }
             .handleViewTreeFrameChanges { change in
                 self.processInfinity(change, with: reader)

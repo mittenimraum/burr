@@ -47,6 +47,7 @@ struct FeedView: View {
                 self.content(reader)
                     .modifier(FeedHeaderView(title: self.interactor.title, action: self.addNewHashtag))
             }
+            .padding(Interface.Spacing.Feed.padding)
             .id(self.id)
             .background(
                 PullToRefresh(action: {
@@ -84,6 +85,7 @@ struct FeedView: View {
         switch interactor.status {
         case let .success(items):
             return InfinityList(
+                insets: Interface.Spacing.Feed.listInsets,
                 shouldTriggerBottom: {
                     self.interactor.shouldLoadMore
                 },
@@ -96,8 +98,10 @@ struct FeedView: View {
                             FeedCell(
                                 item: item,
                                 idealWidth: reader.size.width
-                                    - Interface.Spacing.General.List.leading
-                                    - Interface.Spacing.General.List.trailing
+                                    - Interface.Spacing.Feed.padding.leading
+                                    - Interface.Spacing.Feed.padding.trailing
+                                    - Interface.Spacing.Feed.listInsets.leading
+                                    - Interface.Spacing.Feed.listInsets.trailing
                             )
                             Divider()
                         }
@@ -123,8 +127,8 @@ struct FeedView: View {
                         .multilineTextAlignment(.center)
                 }
                 .frame(width: reader.size.width
-                    - Interface.Spacing.General.List.leading
-                    - Interface.Spacing.General.List.trailing)
+                    - Interface.Spacing.Feed.padding.leading
+                    - Interface.Spacing.Feed.padding.trailing)
             }
             .environment(\.defaultMinListRowHeight, reader.size.height
                 - reader.frame(in: .global).origin.y
