@@ -43,17 +43,11 @@ struct HomeView: View {
             self.interactor.unsubscribe()
         }
         .onReceive(self.interactor.selected) { value in
-            self.selectedIndex = value
             // Refresh the TabView by setting a new id, otherwise
             // the tab content won't be rendered for some reason
             self.id = UUID()
+            self.selectedIndex = value
         }
-    }
-}
-
-extension String {
-    var uuid: UUID {
-        return UUID()
     }
 }
 

@@ -81,6 +81,7 @@ struct FeedView: View {
         }
         .onAppear {
             self.interactor.subscribe()
+            self.interactor.refresh()
             self.interactor.select()
         }
         .onDisappear {

@@ -15,7 +15,7 @@ extension Interface {
 
         struct Fonts {
             struct Regular {
-                static let leading: CGFloat = 8
+                static let leading: CGFloat = 6
             }
         }
 

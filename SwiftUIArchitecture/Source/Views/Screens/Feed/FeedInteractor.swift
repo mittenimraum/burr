@@ -49,8 +49,6 @@ class FeedInteractor: ObservableObject {
     init(store: AppStore, hashtag: String) {
         self.store = store
         self.hashtag = hashtag
-
-        fetch()
     }
 
     // MARK: - DataSource

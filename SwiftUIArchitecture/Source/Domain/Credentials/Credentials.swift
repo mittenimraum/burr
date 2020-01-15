@@ -26,7 +26,15 @@ class Credentials: Configuration {
         return .AES128(key)
     }
 
-    var twitterBaseURL: String {
+    var twitterSearchURL: String {
+        return self[\.Twitter!.SearchURL!]
+    }
+
+    var twitterUserURL: String {
+        return self[\.Twitter!.UserURL!]
+    }
+
+    var twitterAPIBaseURL: String {
         return self[\.Twitter!.BaseURL!]
     }
 

@@ -70,7 +70,7 @@ extension TwitterAPI {
 
 extension TwitterAPI: Resource {
     var baseURL: URL {
-        return URL(string: Credentials.shared.twitterBaseURL)!
+        return URL(string: Credentials.shared.twitterAPIBaseURL)!
     }
 
     var endpoint: Endpoint {
@@ -127,5 +127,15 @@ extension TwitterAPI {
             userCredentials: userCredentials
         )
         return request.allHTTPHeaderFields?.filter { $0.key == Headers.authorization.rawValue }
+    }
+}
+
+extension TwitterAPI {
+    static func urlString(mention: String) -> String? {
+        return String(format: Credentials.shared.twitterUserURL, mention).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    }
+
+    static func urlString(hashtag: String) -> String? {
+        return String(format: Credentials.shared.twitterSearchURL, hashtag).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     }
 }

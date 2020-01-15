@@ -10,10 +10,15 @@ enum AppAction: Reducable, Accountable {
     case addHashtag(String)
     case setHashtags([String])
     case selectHashtag(String)
+    case selectIndex(Int)
     case removeHashtag(String)
 
     func reduce(store: AppStore) {
         switch self {
+        case let .selectIndex(index):
+            store.reduce { state in
+                state.selected = index
+            }
         case let .selectHashtag(hashtag):
             guard let index = accountService.hashtags?.firstIndex(of: hashtag) else {
                 return

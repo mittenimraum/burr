@@ -12,6 +12,7 @@
 		D4267D2723C5F2E100632BA3 /* TinyNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = D4267D2623C5F2E100632BA3 /* TinyNetworking */; };
 		D4267D2B23C6052200632BA3 /* TwitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4267D2A23C6052200632BA3 /* TwitterAPI.swift */; };
 		D4267D2E23C6201000632BA3 /* OhhAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D4267D2D23C6201000632BA3 /* OhhAuth */; };
+		D43DB0CB23CFF03400A6F66E /* UIKit+UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DB0CA23CFF03400A6F66E /* UIKit+UITabBarController.swift */; };
 		D45AD86023C734AC00438F1C /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45AD85F23C734AC00438F1C /* FeedCell.swift */; };
 		D45AD86223C7381200438F1C /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45AD86123C7381200438F1C /* AttributedText.swift */; };
 		D45AD86623C73E8B00438F1C /* AttributedTextView in Frameworks */ = {isa = PBXBuildFile; productRef = D45AD86523C73E8B00438F1C /* AttributedTextView */; };
@@ -105,6 +106,7 @@
 /* Begin PBXFileReference section */
 		D4267D1523C5E60800632BA3 /* Credentials.enc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Credentials.enc; sourceTree = "<group>"; };
 		D4267D2A23C6052200632BA3 /* TwitterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAPI.swift; sourceTree = "<group>"; };
+		D43DB0CA23CFF03400A6F66E /* UIKit+UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+UITabBarController.swift"; sourceTree = "<group>"; };
 		D45AD85F23C734AC00438F1C /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		D45AD86123C7381200438F1C /* AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
 		D45AD86723C73F3C00438F1C /* AttributedTextBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedTextBuilder.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				D45AD87D23C7D2A100438F1C /* SwiftUI+View.swift */,
 				D45AD86B23C7431100438F1C /* TinyNetworking+Resource.swift */,
 				D4CFBAFD23CF71ED002542D6 /* UIKit+View.swift */,
+				D43DB0CA23CFF03400A6F66E /* UIKit+UITabBarController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -771,6 +774,7 @@
 				D49D201023C4FD1F00483FDC /* OnboardingView.swift in Sources */,
 				D4712DCC23C8BA83007B6034 /* InfinityList.swift in Sources */,
 				D45AD87723C7463B00438F1C /* Interface+Spacing.swift in Sources */,
+				D43DB0CB23CFF03400A6F66E /* UIKit+UITabBarController.swift in Sources */,
 				D45AD86F23C743FC00438F1C /* Interface.swift in Sources */,
 				D45AD86823C73F3C00438F1C /* AttributedTextBuilder.swift in Sources */,
 				D4A43A8C23C5DD970052821F /* Configuration.swift in Sources */,

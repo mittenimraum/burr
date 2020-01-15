@@ -23,11 +23,17 @@ struct FeedCell: View {
             Self.attributer(for: self.item)
                 .matchHashtags
                 .makeInteract { hashtag in
-                    debugPrint(hashtag)
+                    guard let link = TwitterAPI.urlString(hashtag: hashtag) else {
+                        return
+                    }
+                    self.item.open.run(link)
                 }
                 .matchMentions
                 .makeInteract { mention in
-                    debugPrint(mention)
+                    guard let link = TwitterAPI.urlString(mention: mention) else {
+                        return
+                    }
+                    self.item.open.run(link)
                 }
                 .matchHyperlinks
                 .makeInteract { link in
