@@ -11,6 +11,20 @@ import SwiftUIRefresh
 import SwiftUIRouter
 
 struct FeedView: View {
+    // MARK: - Enums
+
+    enum Sheet: Identifiable {
+        case addNewHashtag
+        case webPreview(URL)
+
+        var id: String {
+            switch self {
+            case .addNewHashtag: return "addNewHashtag"
+            case .webPreview: return "webPreview"
+            }
+        }
+    }
+
     // MARK: - Constants
 
     let id = UUID()
@@ -23,7 +37,7 @@ struct FeedView: View {
 
     @State private var isPullToRefreshing = false
     @State private var triggerViewRendering = 0
-    @State private var url: URL?
+    @State private var modal: Sheet?
 
     // MARK: - Body
 
@@ -37,12 +51,15 @@ struct FeedView: View {
             .background(
                 PullToRefresh(action: {
                     self.interactor.refresh()
-                }, isShowing: self.$isPullToRefreshing)
+                }, isShowing: self.$isPullToRefreshing).zIndex(-1)
             )
             .sheet(
-                item: self.$url,
+                item: self.$modal,
+                onDismiss: {
+                    self.modal = nil
+                },
                 content: { value in
-                    WebLinkView(url: value)
+                    self.view(for: value)
                 }
             )
         }
@@ -52,8 +69,11 @@ struct FeedView: View {
         .onDisappear {
             self.interactor.unsubscribe()
         }
-        .onReceive(self.interactor.url) { _ in
-            self.url = self.interactor.url.value
+        .onReceive(self.interactor.url) { value in
+            guard let url = value else {
+                return
+            }
+            self.modal = .webPreview(url)
         }
     }
 
@@ -118,7 +138,18 @@ struct FeedView: View {
         }
     }
 
-    private func addNewHashtag() {}
+    private func view(for sheet: Sheet) -> AnyView {
+        switch sheet {
+        case .addNewHashtag:
+            return AnyView(onboardingPresenter(interactor.store))
+        case let .webPreview(url):
+            return AnyView(WebLinkView(url: url))
+        }
+    }
+
+    private func addNewHashtag() {
+        modal = .addNewHashtag
+    }
 }
 
 struct FeedHeaderView: ViewModifier {
@@ -130,11 +161,14 @@ struct FeedHeaderView: ViewModifier {
             .navigationBarItems(trailing:
                 HStack {
                     Button(
-                        action: action,
+                        action: {
+                            self.action()
+                        },
                         label: {
                             Image(systemName: "plus")
                         }
                     )
+                    .frame(width: 30, alignment: .center)
                     .foregroundColor(Color(Interface.Colors.primary))
             })
             .navigationBarTitle(title)

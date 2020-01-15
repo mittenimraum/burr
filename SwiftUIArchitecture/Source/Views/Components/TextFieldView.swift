@@ -53,12 +53,15 @@ struct TextFieldView: UIViewRepresentable {
     func updateUIView(_ uiView: UITextField, context _: Context) {
         uiView.text = text
 
-        if isFocusable[tag] {
-            if !uiView.isFirstResponder {
-                uiView.becomeFirstResponder()
+        DispatchQueue.next {
+            guard uiView.isOnScreen else {
+                return
             }
-        } else {
-            uiView.resignFirstResponder()
+            if self.isFocusable[self.tag] {
+                uiView.becomeFirstResponder()
+            } else {
+                uiView.resignFirstResponder()
+            }
         }
     }
 

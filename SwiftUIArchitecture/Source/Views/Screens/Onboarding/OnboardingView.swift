@@ -15,7 +15,11 @@ struct OnboardingView: View {
 
     var interactor: OnboardingInteractor
 
-    // MARK: - Variables
+    // MARK: - Variables <Environment>
+
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+    // MARK: - Variables <Private>
 
     @State private var input = String()
     @State private var focus = [false]
@@ -38,7 +42,7 @@ struct OnboardingView: View {
                             .color(Interface.Colors.secondary)
                     }
                     Spacer(minLength: Interface.Spacing.Onboarding.spacing)
-                    HStack {
+                    HStack(spacing: 4) {
                         Image(uiImage: "#".image(withAttributes: [
                             .font: UIFont.systemFont(ofSize: Interface.Fonts.Sizes.body, weight: .bold),
                             .foregroundColor: Interface.Colors.primary,
@@ -46,6 +50,7 @@ struct OnboardingView: View {
                         TextFieldView(
                             done: { text in
                                 self.interactor.done(text)
+                                self.presentationMode.wrappedValue.dismiss()
                             },
                             contentType: .emailAddress,
                             returnVal: .done,
@@ -57,7 +62,7 @@ struct OnboardingView: View {
                             tag: 0,
                             text: self.$input,
                             isFocusable: self.$focus
-                        )
+                        ).offset(CGSize(width: 0, height: -1))
                     }.padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
                 }
                 .listRowInsets(Interface.Spacing.Onboarding.padding)

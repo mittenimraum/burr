@@ -68,6 +68,7 @@
 		D4C4154F23C679DF00EFAA98 /* Foundation+DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4154E23C679DF00EFAA98 /* Foundation+DispatchQueue.swift */; };
 		D4CFBAFA23CF245C002542D6 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFBAF923CF245C002542D6 /* AccountService.swift */; };
 		D4CFBAFC23CF48B8002542D6 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFBAFB23CF48B8002542D6 /* TextFieldView.swift */; };
+		D4CFBAFE23CF71ED002542D6 /* UIKit+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFBAFD23CF71ED002542D6 /* UIKit+View.swift */; };
 		D4D0BF7D23CB70E7003BFFF5 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0BF7C23CB70E7003BFFF5 /* Store.swift */; };
 		D4D0BF7F23CB7394003BFFF5 /* StoreContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0BF7E23CB7394003BFFF5 /* StoreContainer.swift */; };
 		D4DD899123C4AA2200179696 /* SwiftUIArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DD899023C4AA2200179696 /* SwiftUIArchitectureTests.swift */; };
@@ -160,6 +161,7 @@
 		D4C4154E23C679DF00EFAA98 /* Foundation+DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+DispatchQueue.swift"; sourceTree = "<group>"; };
 		D4CFBAF923CF245C002542D6 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		D4CFBAFB23CF48B8002542D6 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		D4CFBAFD23CF71ED002542D6 /* UIKit+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+View.swift"; sourceTree = "<group>"; };
 		D4D0BF7C23CB70E7003BFFF5 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		D4D0BF7E23CB7394003BFFF5 /* StoreContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreContainer.swift; sourceTree = "<group>"; };
 		D4DD897623C4AA1F00179696 /* burr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = burr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,6 +343,7 @@
 				D47EBF5623CDEF7A00711F30 /* Foundation+URL.swift */,
 				D45AD87D23C7D2A100438F1C /* SwiftUI+View.swift */,
 				D45AD86B23C7431100438F1C /* TinyNetworking+Resource.swift */,
+				D4CFBAFD23CF71ED002542D6 /* UIKit+View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				D47EBF5723CDEF7A00711F30 /* Foundation+URL.swift in Sources */,
 				D4A43A9E23C5E4460052821F /* Foundation+Dictionary.swift in Sources */,
 				D45AD87323C7444900438F1C /* Interface+Colors.swift in Sources */,
+				D4CFBAFE23CF71ED002542D6 /* UIKit+View.swift in Sources */,
 				D45AD87E23C7D2A100438F1C /* SwiftUI+View.swift in Sources */,
 				D4A43A7D23C5CADE0052821F /* OnboardingInteractor.swift in Sources */,
 				D4CFBAFA23CF245C002542D6 /* AccountService.swift in Sources */,
