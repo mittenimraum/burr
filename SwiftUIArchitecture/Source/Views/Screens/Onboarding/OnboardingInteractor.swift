@@ -13,18 +13,16 @@ struct OnboardingInteractor: Accountable {
 
     let store: AppStore
 
+    // MARK: - Constants <Localization>
+
+    let l10nTitle = L10n.onboardingAddHashtagTitle
+    let l10nPlaceholder = L10n.onboardingAddHashtagInputPlaceholder
+    let l10nHighlightedCharacters = L10n.onboardingAddHashtagTitleHighlighted
+
     // MARK: - Variables <Computed>
 
     var validCharacters: CharacterSet {
-        CharacterSet(charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_")
-    }
-
-    var title: String {
-        "Which Twitter hashtag do you want to follow?"
-    }
-
-    var placeholder: String {
-        "swiftui"
+        CharacterSet(charactersIn: L10n.onboardingAddHashtagInputCharacters)
     }
 
     // MARK: - Init

@@ -13,6 +13,23 @@ import Foundation
 internal enum L10n {
     /// Open in Safari
     internal static let activitySafariOpen = L10n.tr("Localizable", "activity-safari-open")
+    /// Cancel
+    internal static let generalCancel = L10n.tr("Localizable", "general-cancel")
+    /// Do you really want to remove %@?
+    internal static func generalDeleteText(_ p1: String) -> String {
+        return L10n.tr("Localizable", "general-delete-text", p1)
+    }
+
+    /// Yes
+    internal static let generalYes = L10n.tr("Localizable", "general-yes")
+    /// ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_
+    internal static let onboardingAddHashtagInputCharacters = L10n.tr("Localizable", "onboarding-add-hashtag-input-characters")
+    /// swiftui
+    internal static let onboardingAddHashtagInputPlaceholder = L10n.tr("Localizable", "onboarding-add-hashtag-input-placeholder")
+    /// Which Twitter hashtag do you want to peg to?
+    internal static let onboardingAddHashtagTitle = L10n.tr("Localizable", "onboarding-add-hashtag-title")
+    /// Twitter
+    internal static let onboardingAddHashtagTitleHighlighted = L10n.tr("Localizable", "onboarding-add-hashtag-title-highlighted")
 }
 
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

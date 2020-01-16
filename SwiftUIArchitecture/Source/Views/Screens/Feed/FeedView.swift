@@ -179,9 +179,12 @@ struct FeedView: View {
         switch actionsheet {
         case .removeHashtag:
             return ActionSheet(
-                title: Text("#\(interactor.hashtag)"),
-                message: Text("Do you really want to remove the hashtag?"),
-                buttons: [.destructive(Text("Yes"), action: interactor.remove), .default(Text("Cancel"))]
+                title: Text(interactor.l10nRemoveTitle),
+                message: Text(interactor.l10nRemoveText),
+                buttons: [
+                    .destructive(Text(self.interactor.l10nYes), action: interactor.remove),
+                    .default(Text(self.interactor.l10nCancel)),
+                ]
             )
         }
     }

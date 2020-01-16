@@ -1,1 +1,10 @@
 "activity-safari-open" = "Open in Safari";
+
+"onboarding-add-hashtag-title" = "Which Twitter hashtag do you want to peg to?";
+"onboarding-add-hashtag-title-highlighted" = "Twitter";
+"onboarding-add-hashtag-input-placeholder" = "swiftui";
+"onboarding-add-hashtag-input-characters" = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_";
+
+"general-delete-text" = "Do you really want to remove %@?";
+"general-yes" = "Yes";
+"general-cancel" = "Cancel";

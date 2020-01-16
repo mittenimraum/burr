@@ -19,6 +19,16 @@ class FeedInteractor: ObservableObject {
     let actionBag: CancelBag = CancelBag()
     let url: Observable<URL?> = Observable(nil)
 
+    // MARK: - Constants <Localization>
+
+    let l10nYes = L10n.generalYes
+    let l10nCancel = L10n.generalCancel
+
+    // MARK: - Variables <Localization>
+
+    var l10nRemoveTitle: String { title }
+    var l10nRemoveText: String { L10n.generalDeleteText(title) }
+
     // MARK: - Variables <Published>
 
     @Published var status: ListStatus<[FeedItem]> = .initial

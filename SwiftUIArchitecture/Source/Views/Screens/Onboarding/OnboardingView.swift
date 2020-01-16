@@ -32,13 +32,13 @@ struct OnboardingView: View {
                         reader.size.width
                             - Interface.Spacing.Onboarding.padding.leading
                             - Interface.Spacing.Onboarding.padding.trailing) {
-                        Attributer(self.interactor.title)
+                        Attributer(self.interactor.l10nTitle)
                             .font(Interface.Fonts.medium?.withSize(Interface.Fonts.Sizes.title))
                             .color(Interface.Colors.primary)
                             .paragraphLineBreakModeWordWrapping
                             .paragraphLineSpacing(Interface.Spacing.Fonts.Regular.leading)
                             .paragraphApplyStyling
-                            .match("Twitter")
+                            .match(self.interactor.l10nHighlightedCharacters)
                             .color(Interface.Colors.secondary)
                     }
                     Spacer(minLength: Interface.Spacing.Onboarding.spacing)
@@ -59,7 +59,7 @@ struct OnboardingView: View {
                             returnVal: .done,
                             font: Interface.Fonts.medium,
                             fontColor: Interface.Colors.primary,
-                            placeholder: self.interactor.placeholder,
+                            placeholder: self.interactor.l10nPlaceholder,
                             characterSet: self.interactor.validCharacters,
                             minCharacters: 2,
                             tag: 0,
