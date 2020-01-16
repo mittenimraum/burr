@@ -72,7 +72,16 @@ struct WebLinkView: View {
         }.onDisappear {
             self.webViewStore.dispose()
         }.sheet(isPresented: $showShareSheet) {
-            ShareSheet(activityItems: [self.webViewStore.webView.url as Any], applicationActivities: [SafariActivity()])
+            ShareSheet(
+                activityItems: [
+                    HashtagActivityItem(hashtag: TwitterAPI.hashtag(url: self.url), action: self.close),
+                    self.webViewStore.webView.url as Any,
+                ],
+                applicationActivities: [
+                    SafariActivity(),
+                    HashtagActivity(),
+                ]
+            )
         }
     }
 

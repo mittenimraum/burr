@@ -17,6 +17,11 @@ extension String {
     var fileExtension: String? {
         return URL(fileURLWithPath: self).pathExtension
     }
+
+    var isHashtag: Bool {
+        let regularExpression = "(#[a-zA-Z0-9_\\p{Arabic}\\p{N}]*)"
+        return NSPredicate(format: "SELF MATCHES %@", regularExpression).evaluate(with: self)
+    }
 }
 
 extension String {

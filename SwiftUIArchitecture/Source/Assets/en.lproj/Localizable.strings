@@ -1,6 +1,7 @@
 "activity-safari-open" = "Open in Safari";
+"activity-hashtag-add" = "Add %@ to burr";
 
-"onboarding-add-hashtag-title" = "Which Twitter hashtag do you want to stick to?";
+"onboarding-add-hashtag-title" = "Which Twitter hashtag do you want to observe?";
 "onboarding-add-hashtag-title-highlighted" = "Twitter";
 "onboarding-add-hashtag-input-placeholder" = "swiftui";
 "onboarding-add-hashtag-input-characters" = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_";

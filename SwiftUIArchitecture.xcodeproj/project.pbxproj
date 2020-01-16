@@ -37,6 +37,7 @@
 		D488F32823D064B300BDAE0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DD89B723C4AD0A00179696 /* LaunchScreen.storyboard */; };
 		D488F32C23D0A90600BDAE0E /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488F32B23D0A90600BDAE0E /* TwitterUser.swift */; };
 		D488F33823D0D47E00BDAE0E /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488F33723D0D47E00BDAE0E /* Timer.swift */; };
+		D488F33A23D0EFF400BDAE0E /* HashtagActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488F33923D0EFF400BDAE0E /* HashtagActivity.swift */; };
 		D49D200E23C4FC9C00483FDC /* RoutePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49D200D23C4FC9C00483FDC /* RoutePath.swift */; };
 		D49D201023C4FD1F00483FDC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49D200F23C4FD1F00483FDC /* OnboardingView.swift */; };
 		D49D201223C4FF6100483FDC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49D201123C4FF6100483FDC /* AppCoordinator.swift */; };
@@ -129,6 +130,7 @@
 		D480E4F023C8EE910060B3E9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		D488F32B23D0A90600BDAE0E /* TwitterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
 		D488F33723D0D47E00BDAE0E /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		D488F33923D0EFF400BDAE0E /* HashtagActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashtagActivity.swift; sourceTree = "<group>"; };
 		D49D200D23C4FC9C00483FDC /* RoutePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePath.swift; sourceTree = "<group>"; };
 		D49D200F23C4FD1F00483FDC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		D49D201123C4FF6100483FDC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				D4AD4BB223CBA69300BDB356 /* SafariActivity.swift */,
+				D488F33923D0EFF400BDAE0E /* HashtagActivity.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 				D45AD86823C73F3C00438F1C /* AttributedTextBuilder.swift in Sources */,
 				D4A43A8C23C5DD970052821F /* Configuration.swift in Sources */,
 				D4D0BF7D23CB70E7003BFFF5 /* Store.swift in Sources */,
+				D488F33A23D0EFF400BDAE0E /* HashtagActivity.swift in Sources */,
 				D4DD89D523C4DAF900179696 /* RootView.swift in Sources */,
 				D4C4153523C62BA700EFAA98 /* Networkable.swift in Sources */,
 				D4EFE01823CA39820045677F /* ListState.swift in Sources */,

@@ -153,6 +153,17 @@ extension TwitterAPI {
     static func urlString(hashtag: String) -> String? {
         return String(format: Credentials.shared.twitterSearchURL, hashtag).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     }
+
+    static func hashtag(url: URL?) -> String? {
+        let match = String(format: Credentials.shared.twitterSearchURL, String())
+
+        guard
+            let urlString = url?.absoluteString.removingPercentEncoding,
+            urlString.contains(match) else {
+            return nil
+        }
+        return urlString.replacingOccurrences(of: match, with: String())
+    }
 }
 
 extension TwitterAPI {

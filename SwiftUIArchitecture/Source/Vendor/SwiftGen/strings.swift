@@ -11,6 +11,11 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
+    /// Add %@ to burr
+    internal static func activityHashtagAdd(_ p1: String) -> String {
+        return L10n.tr("Localizable", "activity-hashtag-add", p1)
+    }
+
     /// Open in Safari
     internal static let activitySafariOpen = L10n.tr("Localizable", "activity-safari-open")
     /// Nothing found.
@@ -32,7 +37,7 @@ internal enum L10n {
     internal static let onboardingAddHashtagInputDuplicate = L10n.tr("Localizable", "onboarding-add-hashtag-input-duplicate")
     /// swiftui
     internal static let onboardingAddHashtagInputPlaceholder = L10n.tr("Localizable", "onboarding-add-hashtag-input-placeholder")
-    /// Which Twitter hashtag do you want to stick to?
+    /// Which Twitter hashtag do you want to observe?
     internal static let onboardingAddHashtagTitle = L10n.tr("Localizable", "onboarding-add-hashtag-title")
     /// Twitter
     internal static let onboardingAddHashtagTitleHighlighted = L10n.tr("Localizable", "onboarding-add-hashtag-title-highlighted")
