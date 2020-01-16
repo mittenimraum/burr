@@ -6,6 +6,8 @@
 "onboarding-add-hashtag-input-characters" = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_";
 "onboarding-add-hashtag-input-duplicate" = "The hashtag has been already added 🐒";
 
+"feed-no-data" = "Nothing found.";
+
 "general-delete-text" = "Do you want to remove %@?";
 "general-yes" = "Yes";
 "general-no" = "No";

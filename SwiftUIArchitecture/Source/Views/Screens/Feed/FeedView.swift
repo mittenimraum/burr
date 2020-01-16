@@ -144,21 +144,7 @@ struct FeedView: View {
             }
             .typeErased
         case let .error(error):
-            return List {
-                VStack {
-                    Text(error.localizedDescription)
-                        .multilineTextAlignment(.center)
-                }
-                .frame(width: reader.size.width
-                    - Interface.Spacing.Feed.padding.leading
-                    - Interface.Spacing.Feed.padding.trailing
-                    - Interface.Spacing.Feed.listInsets.leading
-                    - Interface.Spacing.Feed.listInsets.trailing)
-            }
-            .environment(\.defaultMinListRowHeight, reader.size.height
-                - reader.frame(in: .global).origin.y
-                - reader.safeAreaInsets.bottom)
-            .typeErased
+            return view(for: error.localizedDescription, reader: reader)
         default:
             return VStack {
                 ActivityIndicator(isAnimating: .constant(true), style: .large)
@@ -166,6 +152,26 @@ struct FeedView: View {
             }
             .typeErased
         }
+    }
+
+    private func view(for message: String, reader: GeometryProxy) -> AnyView {
+        return List {
+            VStack {
+                Text(message)
+                    .font(Font(Interface.Fonts.regular))
+                    .multilineTextAlignment(.center)
+            }
+            .frame(width: reader.size.width
+                - Interface.Spacing.Feed.padding.leading
+                - Interface.Spacing.Feed.padding.trailing
+                - Interface.Spacing.Feed.listInsets.leading
+                - Interface.Spacing.Feed.listInsets.trailing)
+        }
+        .environment(\.defaultMinListRowHeight, reader.size.height
+            - reader.frame(in: .global).origin.y
+            - reader.safeAreaInsets.bottom
+            - 44)
+        .typeErased
     }
 
     private func view(for sheet: Sheet) -> AnyView {

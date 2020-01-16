@@ -19,9 +19,15 @@ enum TwitterAPI {
 // MARK: - Errors
 
 extension TwitterAPI {
-    enum Error: Swift.Error {
-        case unknown
-        case apiError(reason: String)
+    enum Error: LocalizedError {
+        case reason(String)
+
+        var errorDescription: String? {
+            switch self {
+            case let .reason(value):
+                return value
+            }
+        }
     }
 }
 

@@ -13,6 +13,8 @@ import Foundation
 internal enum L10n {
     /// Open in Safari
     internal static let activitySafariOpen = L10n.tr("Localizable", "activity-safari-open")
+    /// Nothing found.
+    internal static let feedNoData = L10n.tr("Localizable", "feed-no-data")
     /// Cancel
     internal static let generalCancel = L10n.tr("Localizable", "general-cancel")
     /// Do you want to remove %@?
