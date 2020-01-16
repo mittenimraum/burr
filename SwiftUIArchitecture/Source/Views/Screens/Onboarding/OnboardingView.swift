@@ -33,7 +33,7 @@ struct OnboardingView: View {
                             - Interface.Spacing.Onboarding.padding.leading
                             - Interface.Spacing.Onboarding.padding.trailing) {
                         Attributer(self.interactor.l10nTitle)
-                            .font(Interface.Fonts.medium?.withSize(Interface.Fonts.Sizes.title))
+                            .font(Interface.Fonts.medium.withSize(Interface.Fonts.Sizes.title))
                             .color(Interface.Colors.primary)
                             .paragraphLineBreakModeWordWrapping
                             .paragraphLineSpacing(Interface.Spacing.Fonts.Regular.leading)

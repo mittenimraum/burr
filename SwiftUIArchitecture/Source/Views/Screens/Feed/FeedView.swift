@@ -59,13 +59,14 @@ struct FeedView: View {
                         shouldShowRemove: self.interactor.shouldShowRemove
                     ))
             }
+            .pullToRefresh(
+                isShowing: self.$isPullToRefreshing,
+                onRefresh: {
+                    self.interactor.refresh()
+                }
+            )
             .padding(Interface.Spacing.Feed.padding)
             .id(self.interactor.hashtag)
-            .background(
-                PullToRefresh(action: {
-                    self.interactor.refresh()
-                }, isShowing: self.$isPullToRefreshing)
-            )
             .sheet(
                 item: self.$modal,
                 onDismiss: {

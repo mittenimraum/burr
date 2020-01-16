@@ -10,5 +10,6 @@ import Foundation
 
 struct FeedItem {
     let status: TwitterStatus
+    let timer: Timer
     let open: Action<String>
 }

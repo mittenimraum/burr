@@ -16,6 +16,15 @@ enum TwitterAPI {
     case search(query: String, Pagination)
 }
 
+// MARK: - Errors
+
+extension TwitterAPI {
+    enum Error: Swift.Error {
+        case unknown
+        case apiError(reason: String)
+    }
+}
+
 // MARK: - Parameters / Headers
 
 extension TwitterAPI {
@@ -138,4 +147,21 @@ extension TwitterAPI {
     static func urlString(hashtag: String) -> String? {
         return String(format: Credentials.shared.twitterSearchURL, hashtag).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     }
+}
+
+extension TwitterAPI {
+    static let jsonDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE MMM dd HH:mm:ss Z yyyy"
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter
+    }()
+
+    static let jsonDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(jsonDateFormatter)
+        return decoder
+    }()
 }

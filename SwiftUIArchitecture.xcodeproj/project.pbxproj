@@ -35,6 +35,8 @@
 		D480E4F123C8EE910060B3E9 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480E4F023C8EE910060B3E9 /* ActivityIndicator.swift */; };
 		D488F32723D064A600BDAE0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4DD89B423C4AD0A00179696 /* Assets.xcassets */; };
 		D488F32823D064B300BDAE0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DD89B723C4AD0A00179696 /* LaunchScreen.storyboard */; };
+		D488F32C23D0A90600BDAE0E /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488F32B23D0A90600BDAE0E /* TwitterUser.swift */; };
+		D488F33823D0D47E00BDAE0E /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488F33723D0D47E00BDAE0E /* Timer.swift */; };
 		D49D200E23C4FC9C00483FDC /* RoutePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49D200D23C4FC9C00483FDC /* RoutePath.swift */; };
 		D49D201023C4FD1F00483FDC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49D200F23C4FD1F00483FDC /* OnboardingView.swift */; };
 		D49D201223C4FF6100483FDC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49D201123C4FF6100483FDC /* AppCoordinator.swift */; };
@@ -125,6 +127,8 @@
 		D47EBF5823CE03F300711F30 /* Combine+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Publisher.swift"; sourceTree = "<group>"; };
 		D47EBF5A23CE044A00711F30 /* Combine+Subscribers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Subscribers.swift"; sourceTree = "<group>"; };
 		D480E4F023C8EE910060B3E9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		D488F32B23D0A90600BDAE0E /* TwitterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
+		D488F33723D0D47E00BDAE0E /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		D49D200D23C4FC9C00483FDC /* RoutePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePath.swift; sourceTree = "<group>"; };
 		D49D200F23C4FD1F00483FDC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		D49D201123C4FF6100483FDC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -269,6 +273,14 @@
 			path = SwiftGen;
 			sourceTree = "<group>";
 		};
+		D488F33623D0D46E00BDAE0E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D488F33723D0D47E00BDAE0E /* Timer.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		D49D200723C4FBC900483FDC /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +375,7 @@
 			children = (
 				D4C4153B23C6370600EFAA98 /* TwitterResponse.swift */,
 				D4C4153D23C6374500EFAA98 /* TwitterStatus.swift */,
+				D488F32B23D0A90600BDAE0E /* TwitterUser.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -470,10 +483,11 @@
 			children = (
 				D4CFBAF823CF244B002542D6 /* Account */,
 				D4AD4BB123CBA68100BDB356 /* Activities */,
-				D4C4153623C62BD100EFAA98 /* Domain.swift */,
 				D4A43A8A23C5DD8A0052821F /* Credentials */,
 				D4C4153A23C636E800EFAA98 /* Entities */,
 				D4267D2123C5F00F00632BA3 /* Network */,
+				D488F33623D0D46E00BDAE0E /* Utilities */,
+				D4C4153623C62BD100EFAA98 /* Domain.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -757,6 +771,7 @@
 				D4A43A7523C5C7F70052821F /* HomeView.swift in Sources */,
 				D4AD4BB323CBA69300BDB356 /* SafariActivity.swift in Sources */,
 				D45AD86223C7381200438F1C /* AttributedText.swift in Sources */,
+				D488F33823D0D47E00BDAE0E /* Timer.swift in Sources */,
 				D45AD86023C734AC00438F1C /* FeedCell.swift in Sources */,
 				D4A43A8E23C5DDA00052821F /* Credentials.swift in Sources */,
 				D49D201923C500FD00483FDC /* AppAction.swift in Sources */,
@@ -793,6 +808,7 @@
 				D4CFBAFC23CF48B8002542D6 /* TextFieldView.swift in Sources */,
 				D475BA6223CBBD390061733A /* assets-images.swift in Sources */,
 				D4267D2B23C6052200632BA3 /* TwitterAPI.swift in Sources */,
+				D488F32C23D0A90600BDAE0E /* TwitterUser.swift in Sources */,
 				D4C4153723C62BD100EFAA98 /* Domain.swift in Sources */,
 				D49D201E23C5030C00483FDC /* RouteState.swift in Sources */,
 				D4A43A9A23C5E1490052821F /* Obfuscator.swift in Sources */,

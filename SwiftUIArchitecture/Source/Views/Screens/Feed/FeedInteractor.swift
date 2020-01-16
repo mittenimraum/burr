@@ -75,7 +75,13 @@ class FeedInteractor: ObservableObject {
             }
             previousItems.append($0)
         }
-        return previousItems.map { FeedItem(status: $0, open: open()) }
+        return previousItems.map {
+            FeedItem(
+                status: $0,
+                timer: Domain.timer,
+                open: open()
+            )
+        }
     }
 
     // MARK: - Actions

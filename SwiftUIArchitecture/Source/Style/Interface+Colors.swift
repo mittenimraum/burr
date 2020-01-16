@@ -14,5 +14,6 @@ extension Interface {
     struct Colors {
         static let primary = UIColor.black
         static let secondary = UIColor(hex: 0x1A91DA)
+        static let tertiary = primary.withAlphaComponent(1)
     }
 }

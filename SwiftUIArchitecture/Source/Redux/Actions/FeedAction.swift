@@ -36,7 +36,7 @@ enum FeedAction: Reducable, Networkable {
 
     private func request(store: AppStore, hashtag: String, pagination: TwitterAPI.Pagination, bag: CancelBag) {
         twitterAPI.requestPublisher(resource: .search(query: "#\(hashtag)", pagination), queue: .global(qos: .userInitiated))
-            .tryMap { try $0.map(to: TwitterResponse.self) }
+            .tryMap { try $0.map(to: TwitterResponse.self, decoder: TwitterAPI.jsonDecoder) }
             .receive(on: DispatchQueue.main)
             .sinkToResult { result in
                 switch result {
@@ -49,6 +49,7 @@ enum FeedAction: Reducable, Networkable {
                     }
                     pagination.take(value.nextMaxId)
                 case let .failure(error):
+                    debugPrint(error.localizedDescription)
                     store.reduce { state in
                         state.feed.items[hashtag] = .error(error)
                     }
