@@ -15,6 +15,7 @@ struct TextFieldView: UIViewRepresentable {
     // MARK: - Constants
 
     let done: ((String) -> Void)?
+    let change: ((String) -> Void)?
     let contentType: UITextContentType
     let returnVal: UIReturnKeyType
     let font: UIFont?
@@ -79,9 +80,11 @@ struct TextFieldView: UIViewRepresentable {
         }
 
         func textFieldDidChangeSelection(_ textField: UITextField) {
-            // Without async this will modify the state during view update.
-            DispatchQueue.main.async {
-                self.parent.text = textField.text ?? ""
+            let text = textField.text ?? ""
+
+            DispatchQueue.next {
+                self.parent.text = text
+                self.parent.change?(text)
             }
         }
 
@@ -136,6 +139,7 @@ struct TextFieldView_Previews: PreviewProvider {
     static var previews: some View {
         TextFieldView(
             done: nil,
+            change: nil,
             contentType: .emailAddress,
             returnVal: .next,
             font: nil,

@@ -162,6 +162,7 @@ struct FeedView: View {
         default:
             return VStack {
                 ActivityIndicator(isAnimating: .constant(true), style: .large)
+                    .offset(x: 0, y: -20)
             }
             .typeErased
         }
@@ -180,11 +181,10 @@ struct FeedView: View {
         switch actionsheet {
         case .removeHashtag:
             return ActionSheet(
-                title: Text(interactor.l10nRemoveTitle),
-                message: Text(interactor.l10nRemoveText),
+                title: Text(interactor.l10nRemoveText),
                 buttons: [
                     .destructive(Text(self.interactor.l10nYes), action: interactor.remove),
-                    .default(Text(self.interactor.l10nCancel)),
+                    .default(Text(self.interactor.l10nNo)),
                 ]
             )
         }

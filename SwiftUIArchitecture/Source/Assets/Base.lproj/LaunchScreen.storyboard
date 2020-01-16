@@ -16,13 +16,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="amH-TM-mdc">
-                                <rect key="frame" x="107.5" y="197" width="199" height="512"/>
+                                <rect key="frame" x="117.5" y="197" width="179" height="512"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="amH-TM-mdc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CwW-Qw-hjf"/>
-                            <constraint firstItem="amH-TM-mdc" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="1:4.5" id="GW6-T9-Vtt"/>
+                            <constraint firstItem="amH-TM-mdc" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="1:5" id="GW6-T9-Vtt"/>
                             <constraint firstItem="amH-TM-mdc" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="rKn-xv-Hzs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

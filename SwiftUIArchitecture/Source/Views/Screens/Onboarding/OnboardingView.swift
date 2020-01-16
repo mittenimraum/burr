@@ -23,11 +23,12 @@ struct OnboardingView: View {
 
     @State private var input = String()
     @State private var focus = [false]
+    @State private var hint = ""
 
     var body: some View {
         GeometryReader { reader in
             List {
-                VStack(alignment: .center) {
+                VStack(alignment: .leading) {
                     AttributedText(idealWidth:
                         reader.size.width
                             - Interface.Spacing.Onboarding.padding.leading
@@ -49,11 +50,15 @@ struct OnboardingView: View {
                         ]))
                         TextFieldView(
                             done: { text in
-                                guard self.interactor.isValid(text) else {
+                                guard self.interactor.isDuplicate(text) == false else {
                                     return
                                 }
-                                self.interactor.done(text)
                                 self.presentationMode.wrappedValue.dismiss()
+                                self.interactor.done(text)
+                            },
+                            change: { text in
+                                self.hint = self.interactor.isDuplicate(text)
+                                    ? self.interactor.l10nDuplicate : ""
                             },
                             contentType: .emailAddress,
                             returnVal: .done,
@@ -65,8 +70,15 @@ struct OnboardingView: View {
                             tag: 0,
                             text: self.$input,
                             isFocusable: self.$focus
-                        ).offset(CGSize(width: 0, height: -1))
+                        )
+                        .offset(CGSize(width: 0, height: -1))
+                        .frame(maxWidth: reader.size.width - 100)
+                        .clipped()
                     }.padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+                    Spacer(minLength: 28)
+                    Text(self.hint)
+                        .font(Font(Interface.Fonts.medium.withSize(Interface.Fonts.Sizes.hint)))
+                        .offset(x: 5, y: 0)
                 }
                 .listRowInsets(Interface.Spacing.Onboarding.padding)
             }

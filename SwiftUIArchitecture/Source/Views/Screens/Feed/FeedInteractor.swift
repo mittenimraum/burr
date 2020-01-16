@@ -22,11 +22,10 @@ class FeedInteractor: ObservableObject {
     // MARK: - Constants <Localization>
 
     let l10nYes = L10n.generalYes
-    let l10nCancel = L10n.generalCancel
+    let l10nNo = L10n.generalNo
 
     // MARK: - Variables <Localization>
 
-    var l10nRemoveTitle: String { title }
     var l10nRemoveText: String { L10n.generalDeleteText(title) }
 
     // MARK: - Variables <Published>

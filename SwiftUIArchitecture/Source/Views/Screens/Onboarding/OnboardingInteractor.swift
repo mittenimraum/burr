@@ -18,6 +18,7 @@ struct OnboardingInteractor: Accountable {
     let l10nTitle = L10n.onboardingAddHashtagTitle
     let l10nPlaceholder = L10n.onboardingAddHashtagInputPlaceholder
     let l10nHighlightedCharacters = L10n.onboardingAddHashtagTitleHighlighted
+    let l10nDuplicate = L10n.onboardingAddHashtagInputDuplicate
 
     // MARK: - Variables <Computed>
 
@@ -33,14 +34,17 @@ struct OnboardingInteractor: Accountable {
 
     // MARK: - Methods
 
-    func isValid(_ hashtag: String) -> Bool {
-        return accountService.hashtags?.contains(hashtag) == false
+    func isDuplicate(_ hashtag: String) -> Bool {
+        return accountService.hashtags?.contains(hashtag) == true
     }
 
     func done(_ text: String) {
-        store.dispatch(RouteAction.setPath(.feed))
+        let currentPath = store.value.route.path
 
-        DispatchQueue.next {
+        if currentPath == .onboarding {
+            store.dispatch(RouteAction.setPath(.feed))
+        }
+        DispatchQueue.delay(currentPath == .onboarding ? 0 : 0.33) {
             self.store.dispatch(AppAction.addHashtag(text))
             self.store.dispatch(AppAction.selectHashtag(text))
         }
