@@ -16,20 +16,28 @@ class AppCoordinator {
 
     let store: AppStore
     let router: AppRouter
+    let recorder = AppRecorder()
 
     // MARK: - Init
 
-    init(_ state: AppState) {
-        store = AppStore(state)
-        let routerView = RouterView(store: store, RootView())
-        router = Router(content: { routerView })
+    init(_ value: AppState) {
+        let state = recorder.read { $0.feed.items = [:] } ?? value
+        let store = AppStore(state)
+
+        self.store = store
+        router = Router(content: { RouterView(store: store, RootView()) })
 
         initializeStyling()
+        initializeRecorder()
         initializeDefaults()
     }
 
     private func initializeStyling() {
         Interface.applyStyling()
+    }
+
+    private func initializeRecorder() {
+        recorder.observe(store)
     }
 
     private func initializeDefaults() {

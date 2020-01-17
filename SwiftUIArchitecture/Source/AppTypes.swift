@@ -14,6 +14,7 @@ import SwiftUIRouter
 
 typealias AppStore = Store<AppState>
 typealias AppRouter = Router<RouterView<RootView>>
+typealias AppRecorder = StoreRecorder<AppState>
 typealias Observable<T> = CurrentValueSubject<T, Never>
 
 // MARK: - Action

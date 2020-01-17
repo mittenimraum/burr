@@ -26,6 +26,7 @@
 		D45AD87E23C7D2A100438F1C /* SwiftUI+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45AD87D23C7D2A100438F1C /* SwiftUI+View.swift */; };
 		D471113A23D1B63A00259208 /* UIKit+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471113923D1B63A00259208 /* UIKit+UINavigationController.swift */; };
 		D471113C23D214A600259208 /* TwitterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471113B23D214A600259208 /* TwitterError.swift */; };
+		D471113E23D2202500259208 /* StoreRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471113D23D2202500259208 /* StoreRecorder.swift */; };
 		D4712DCC23C8BA83007B6034 /* InfinityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4712DCB23C8BA83007B6034 /* InfinityList.swift */; };
 		D475BA5823CBBAD60061733A /* WebLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475BA5723CBBAD60061733A /* WebLinkView.swift */; };
 		D475BA5B23CBBBFD0061733A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D475BA5D23CBBBFD0061733A /* Localizable.strings */; };
@@ -123,6 +124,7 @@
 		D45AD87D23C7D2A100438F1C /* SwiftUI+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+View.swift"; sourceTree = "<group>"; };
 		D471113923D1B63A00259208 /* UIKit+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+UINavigationController.swift"; sourceTree = "<group>"; };
 		D471113B23D214A600259208 /* TwitterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterError.swift; sourceTree = "<group>"; };
+		D471113D23D2202500259208 /* StoreRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRecorder.swift; sourceTree = "<group>"; };
 		D4712DCB23C8BA83007B6034 /* InfinityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfinityList.swift; sourceTree = "<group>"; };
 		D475BA5723CBBAD60061733A /* WebLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLinkView.swift; sourceTree = "<group>"; };
 		D475BA5C23CBBBFD0061733A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -517,6 +519,7 @@
 				D49D201323C5002F00483FDC /* States */,
 				D4D0BF7C23CB70E7003BFFF5 /* Store.swift */,
 				D4D0BF7E23CB7394003BFFF5 /* StoreContainer.swift */,
+				D471113D23D2202500259208 /* StoreRecorder.swift */,
 			);
 			path = Redux;
 			sourceTree = "<group>";
@@ -776,6 +779,7 @@
 				D47EBF5B23CE044B00711F30 /* Combine+Subscribers.swift in Sources */,
 				D49D201723C5004700483FDC /* AppState.swift in Sources */,
 				D475BA5823CBBAD60061733A /* WebLinkView.swift in Sources */,
+				D471113E23D2202500259208 /* StoreRecorder.swift in Sources */,
 				D49D200E23C4FC9C00483FDC /* RoutePath.swift in Sources */,
 				D4A43A7523C5C7F70052821F /* HomeView.swift in Sources */,
 				D4AD4BB323CBA69300BDB356 /* SafariActivity.swift in Sources */,
