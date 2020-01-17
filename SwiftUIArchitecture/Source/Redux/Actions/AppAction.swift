@@ -30,8 +30,27 @@ enum AppAction: Reducable, Accountable {
             let hashtags = accountService.remove(hashtag: hashtag)
 
             store.reduce { state in
+                // Workaround for a SwiftUI crash:
+                //
+                // precondition failure: invalid input index: 2
+                //
+                // which occurs, when deleting the first hashtag out
+                // of the TabView. It seems to be connected to setting
+                // a @State var for the 'selection' parameter of the TabView.
+                //
+                // The code without workaround should just be:
+                //
+                // state.hashtags = hashtags
+                // state.selected = max(0, state.selected - 1)
+                //
+                let currentState = state.selected
+                if currentState == 0 {
+                    state.selected = 1
+                }
                 state.hashtags = hashtags
-                state.selected = max(0, state.selected - 1)
+                if currentState != 0 {
+                    state.selected = max(0, state.selected - 1)
+                }
             }
         case let .addHashtag(hashtag):
             let hashtags = accountService.add(hashtag: hashtag)
