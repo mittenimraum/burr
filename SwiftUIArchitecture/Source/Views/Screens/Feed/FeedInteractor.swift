@@ -36,7 +36,7 @@ class FeedInteractor: ObservableObject {
     // MARK: - Variables <Computed>
 
     var shouldLoadMore: Bool {
-        if case .success = store.value.feed.items[hashtag] {
+        if case let .success(items) = store.value.feed.items[hashtag], !items.isEmpty {
             return true
         }
         return false
