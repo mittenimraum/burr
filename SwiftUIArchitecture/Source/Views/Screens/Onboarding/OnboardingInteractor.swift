@@ -35,7 +35,9 @@ struct OnboardingInteractor: Accountable {
     // MARK: - Methods
 
     func isDuplicate(_ hashtag: String) -> Bool {
-        return accountService.hashtags?.contains(hashtag) == true
+        return accountService.hashtags?
+            .map { $0.lowercased() }
+            .contains(hashtag.lowercased()) == true
     }
 
     func done(_ text: String) {

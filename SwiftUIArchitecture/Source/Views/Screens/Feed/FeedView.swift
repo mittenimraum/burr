@@ -14,13 +14,11 @@ import SwiftUIRouter
 struct FeedView: View {
     // MARK: - Enums
 
-    enum Actionsheet: Identifiable {
+    enum Actionsheet: Int, Identifiable {
         case removeHashtag
 
-        var id: String {
-            switch self {
-            case .removeHashtag: return "removeHashtag"
-            }
+        var id: Int {
+            rawValue
         }
     }
 
@@ -28,10 +26,10 @@ struct FeedView: View {
         case addHashtag
         case webPreview(URL)
 
-        var id: String {
+        var id: Int {
             switch self {
-            case .addHashtag: return "addHashtag"
-            case .webPreview: return "webPreview"
+            case .addHashtag: return 0
+            case .webPreview: return 1
             }
         }
     }
@@ -46,7 +44,6 @@ struct FeedView: View {
     @State private var triggerViewRendering = 0
     @State private var modal: Sheet?
     @State private var actionsheet: Actionsheet?
-    @State private var tableView: UITableView?
 
     // MARK: - Body
 

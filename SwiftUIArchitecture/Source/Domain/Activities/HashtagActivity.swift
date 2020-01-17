@@ -68,11 +68,11 @@ struct HashtagActivityItem {
 
     var isUnique: Bool {
         guard
-            let hashtag = strippedHashtag,
+            let hashtag = strippedHashtag?.lowercased(),
             let hashtags = Domain.accountService.hashtags else {
             return false
         }
-        return hashtags.contains(hashtag) == false
+        return hashtags.map { $0.lowercased() }.contains(hashtag) == false
     }
 
     var store: AppStore? {
