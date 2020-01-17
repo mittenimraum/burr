@@ -23,7 +23,6 @@ class FeedInteractor: ObservableObject {
 
     let l10nYes = L10n.generalYes
     let l10nNo = L10n.generalNo
-    let l10nNoResults = L10n.feedNoData
 
     // MARK: - Variables <Localization>
 
@@ -121,7 +120,7 @@ extension FeedInteractor: StoreSubscriber {
         case let .success(items):
             let value = data(for: items)
             status = value.isEmpty ?
-                .error(TwitterAPI.Error.reason(l10nNoResults)) :
+                .error(TwitterAPI.Error.response(TwitterError.noResults)) :
                 .success(value)
         case let .error(error):
             status = .error(error)

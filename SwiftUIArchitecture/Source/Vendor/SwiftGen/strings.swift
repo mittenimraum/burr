@@ -19,7 +19,11 @@ internal enum L10n {
     /// Open in Safari
     internal static let activitySafariOpen = L10n.tr("Localizable", "activity-safari-open")
     /// Nothing found.
-    internal static let feedNoData = L10n.tr("Localizable", "feed-no-data")
+    internal static let errorFeedNoData = L10n.tr("Localizable", "error-feed-no-data")
+    /// burr uses the Standard Twitter API which has a request limit of 450 calls per every 15 minutes.\nUnfortunately the limit has been exceeded right now, please wait a couple of minutes until the limit has been reset.
+    internal static let errorRateLimitExceeded = L10n.tr("Localizable", "error-rate-limit-exceeded")
+    /// An unknown error occured
+    internal static let errorUnknown = L10n.tr("Localizable", "error-unknown")
     /// Cancel
     internal static let generalCancel = L10n.tr("Localizable", "general-cancel")
     /// Do you want to remove %@?

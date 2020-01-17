@@ -7,7 +7,9 @@
 "onboarding-add-hashtag-input-characters" = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_";
 "onboarding-add-hashtag-input-duplicate" = "The hashtag has been already added 🐒";
 
-"feed-no-data" = "Nothing found.";
+"error-feed-no-data" = "Nothing found.";
+"error-rate-limit-exceeded" = "burr uses the Standard Twitter API which has a request limit of 450 calls per every 15 minutes.\nUnfortunately the limit has been exceeded right now, please wait a couple of minutes until the limit has been reset.";
+"error-unknown" = "An unknown error occured";
 
 "general-delete-text" = "Do you want to remove %@?";
 "general-yes" = "Yes";

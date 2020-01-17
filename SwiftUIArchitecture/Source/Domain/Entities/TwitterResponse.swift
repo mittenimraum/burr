@@ -13,7 +13,7 @@ struct TwitterResponse: Codable {
 
     enum CodingKeys: String, CodingKey {
         case metaData = "search_metadata"
-        case statuses
+        case statuses, errors
 
         enum MetaData: String, CodingKey {
             case nextResults = "next_results"
@@ -23,16 +23,19 @@ struct TwitterResponse: Codable {
     // MARK: - Variables
 
     var statuses: [TwitterStatus]?
+    var errors: [TwitterError]?
     var nextResults: String?
 
     // MARK: - Codable
 
     public init(from decoder: Decoder) throws {
         let root = try decoder.container(keyedBy: CodingKeys.self)
-        let metadata = try root.nestedContainer(keyedBy: CodingKeys.MetaData.self, forKey: .metaData)
-
         statuses = try? root.decode([TwitterStatus].self, forKey: .statuses)
-        nextResults = try? metadata.decode(String.self, forKey: .nextResults)
+        errors = try? root.decode([TwitterError].self, forKey: .errors)
+
+        if let metadata = try? root.nestedContainer(keyedBy: CodingKeys.MetaData.self, forKey: .metaData) {
+            nextResults = try? metadata.decode(String.self, forKey: .nextResults)
+        }
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -40,6 +43,7 @@ struct TwitterResponse: Codable {
         var metadata = root.nestedContainer(keyedBy: CodingKeys.MetaData.self, forKey: .metaData)
 
         try? root.encode(statuses, forKey: .statuses)
+        try? root.encode(errors, forKey: .errors)
         try? metadata.encodeOnlyIfNonNil(nextResults, forKey: .nextResults)
     }
 }

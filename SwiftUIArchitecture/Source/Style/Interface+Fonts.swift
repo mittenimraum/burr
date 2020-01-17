@@ -14,6 +14,7 @@ extension Interface {
         struct Sizes {
             static let body: CGFloat = 24
             static let title: CGFloat = 28
+            static let error: CGFloat = 22
             static let source: CGFloat = 18
             static let hint: CGFloat = 16
         }

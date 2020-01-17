@@ -157,7 +157,7 @@ struct FeedView: View {
         return List {
             VStack {
                 Text(message)
-                    .font(Font(Interface.Fonts.regular))
+                    .font(Font(Interface.Fonts.regular.withSize(Interface.Fonts.Sizes.error)))
                     .multilineTextAlignment(.center)
             }
             .frame(width: reader.size.width

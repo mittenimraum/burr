@@ -20,12 +20,12 @@ enum TwitterAPI {
 
 extension TwitterAPI {
     enum Error: LocalizedError {
-        case reason(String)
+        case response(TwitterError)
 
         var errorDescription: String? {
             switch self {
-            case let .reason(value):
-                return value
+            case let .response(value):
+                return value.formattedMessage
             }
         }
     }

@@ -48,10 +48,18 @@ enum FeedAction: Reducable, Networkable {
                         state.feed.items[hashtag] = .success(array)
                     }
                     pagination.take(value.nextMaxId)
-                case let .failure(error):
-                    debugPrint(error.localizedDescription)
+                case let .failure(failure):
+                    guard
+                        case let .statusCode(response) = failure as? TinyNetworkingError,
+                        let entity = try? response.map(to: TwitterResponse.self),
+                        let error = entity.errors?.first else {
+                        store.reduce { state in
+                            state.feed.items[hashtag] = .error(failure)
+                        }
+                        return
+                    }
                     store.reduce { state in
-                        state.feed.items[hashtag] = .error(error)
+                        state.feed.items[hashtag] = .error(TwitterAPI.Error.response(error))
                     }
                 }
             }

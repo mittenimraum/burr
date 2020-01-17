@@ -25,6 +25,7 @@
 		D45AD87723C7463B00438F1C /* Interface+Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45AD87623C7463B00438F1C /* Interface+Spacing.swift */; };
 		D45AD87E23C7D2A100438F1C /* SwiftUI+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45AD87D23C7D2A100438F1C /* SwiftUI+View.swift */; };
 		D471113A23D1B63A00259208 /* UIKit+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471113923D1B63A00259208 /* UIKit+UINavigationController.swift */; };
+		D471113C23D214A600259208 /* TwitterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471113B23D214A600259208 /* TwitterError.swift */; };
 		D4712DCC23C8BA83007B6034 /* InfinityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4712DCB23C8BA83007B6034 /* InfinityList.swift */; };
 		D475BA5823CBBAD60061733A /* WebLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475BA5723CBBAD60061733A /* WebLinkView.swift */; };
 		D475BA5B23CBBBFD0061733A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D475BA5D23CBBBFD0061733A /* Localizable.strings */; };
@@ -121,6 +122,7 @@
 		D45AD87623C7463B00438F1C /* Interface+Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interface+Spacing.swift"; sourceTree = "<group>"; };
 		D45AD87D23C7D2A100438F1C /* SwiftUI+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+View.swift"; sourceTree = "<group>"; };
 		D471113923D1B63A00259208 /* UIKit+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+UINavigationController.swift"; sourceTree = "<group>"; };
+		D471113B23D214A600259208 /* TwitterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterError.swift; sourceTree = "<group>"; };
 		D4712DCB23C8BA83007B6034 /* InfinityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfinityList.swift; sourceTree = "<group>"; };
 		D475BA5723CBBAD60061733A /* WebLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLinkView.swift; sourceTree = "<group>"; };
 		D475BA5C23CBBBFD0061733A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				D4C4153B23C6370600EFAA98 /* TwitterResponse.swift */,
 				D4C4153D23C6374500EFAA98 /* TwitterStatus.swift */,
 				D488F32B23D0A90600BDAE0E /* TwitterUser.swift */,
+				D471113B23D214A600259208 /* TwitterError.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -822,6 +825,7 @@
 				D4A43A9A23C5E1490052821F /* Obfuscator.swift in Sources */,
 				D4DD89BB23C4AD0A00179696 /* AppDelegate.swift in Sources */,
 				D4AD4BAE23CB9E9C00BDB356 /* ShareSheet.swift in Sources */,
+				D471113C23D214A600259208 /* TwitterError.swift in Sources */,
 				D4D0BF7F23CB7394003BFFF5 /* StoreContainer.swift in Sources */,
 				D4ACCD9323CDD07D00E3F775 /* FeedItem.swift in Sources */,
 				D49D201223C4FF6100483FDC /* AppCoordinator.swift in Sources */,
