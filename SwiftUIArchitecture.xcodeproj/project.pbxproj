@@ -24,6 +24,7 @@
 		D45AD87323C7444900438F1C /* Interface+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45AD87223C7444900438F1C /* Interface+Colors.swift */; };
 		D45AD87723C7463B00438F1C /* Interface+Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45AD87623C7463B00438F1C /* Interface+Spacing.swift */; };
 		D45AD87E23C7D2A100438F1C /* SwiftUI+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45AD87D23C7D2A100438F1C /* SwiftUI+View.swift */; };
+		D471113A23D1B63A00259208 /* UIKit+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471113923D1B63A00259208 /* UIKit+UINavigationController.swift */; };
 		D4712DCC23C8BA83007B6034 /* InfinityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4712DCB23C8BA83007B6034 /* InfinityList.swift */; };
 		D475BA5823CBBAD60061733A /* WebLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475BA5723CBBAD60061733A /* WebLinkView.swift */; };
 		D475BA5B23CBBBFD0061733A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D475BA5D23CBBBFD0061733A /* Localizable.strings */; };
@@ -119,6 +120,7 @@
 		D45AD87223C7444900438F1C /* Interface+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interface+Colors.swift"; sourceTree = "<group>"; };
 		D45AD87623C7463B00438F1C /* Interface+Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interface+Spacing.swift"; sourceTree = "<group>"; };
 		D45AD87D23C7D2A100438F1C /* SwiftUI+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+View.swift"; sourceTree = "<group>"; };
+		D471113923D1B63A00259208 /* UIKit+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+UINavigationController.swift"; sourceTree = "<group>"; };
 		D4712DCB23C8BA83007B6034 /* InfinityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfinityList.swift; sourceTree = "<group>"; };
 		D475BA5723CBBAD60061733A /* WebLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLinkView.swift; sourceTree = "<group>"; };
 		D475BA5C23CBBBFD0061733A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				D45AD86B23C7431100438F1C /* TinyNetworking+Resource.swift */,
 				D4CFBAFD23CF71ED002542D6 /* UIKit+View.swift */,
 				D43DB0CA23CFF03400A6F66E /* UIKit+UITabBarController.swift */,
+				D471113923D1B63A00259208 /* UIKit+UINavigationController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -777,6 +780,7 @@
 				D488F33823D0D47E00BDAE0E /* Timer.swift in Sources */,
 				D45AD86023C734AC00438F1C /* FeedCell.swift in Sources */,
 				D4A43A8E23C5DDA00052821F /* Credentials.swift in Sources */,
+				D471113A23D1B63A00259208 /* UIKit+UINavigationController.swift in Sources */,
 				D49D201923C500FD00483FDC /* AppAction.swift in Sources */,
 				D4C4154F23C679DF00EFAA98 /* Foundation+DispatchQueue.swift in Sources */,
 				D47EBF5723CDEF7A00711F30 /* Foundation+URL.swift in Sources */,

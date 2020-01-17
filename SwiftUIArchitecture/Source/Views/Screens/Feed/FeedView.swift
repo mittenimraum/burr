@@ -6,6 +6,7 @@
 //  Copyright © 2020 Stephan Schulz. All rights reserved.
 //
 
+import Introspect
 import SwiftUI
 import SwiftUIRefresh
 import SwiftUIRouter
@@ -45,6 +46,7 @@ struct FeedView: View {
     @State private var triggerViewRendering = 0
     @State private var modal: Sheet?
     @State private var actionsheet: Actionsheet?
+    @State private var tableView: UITableView?
 
     // MARK: - Body
 
