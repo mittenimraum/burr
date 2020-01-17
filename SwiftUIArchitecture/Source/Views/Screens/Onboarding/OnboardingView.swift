@@ -37,7 +37,7 @@ struct OnboardingView: View {
                             .font(Interface.Fonts.medium.withSize(Interface.Fonts.Sizes.title))
                             .color(Interface.Colors.primary)
                             .paragraphLineBreakModeWordWrapping
-                            .paragraphLineSpacing(Interface.Spacing.Fonts.Regular.leading)
+                            .paragraphLineSpacing(Interface.Spacing.Fonts.Medium.leading)
                             .paragraphApplyStyling
                             .match(self.interactor.l10nHighlightedCharacters)
                             .color(Interface.Colors.secondary)
@@ -75,7 +75,7 @@ struct OnboardingView: View {
                         .frame(maxWidth: reader.size.width - 100)
                         .clipped()
                     }.padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
-                    Spacer(minLength: 28)
+                    Spacer(minLength: 22)
                     Text(self.hint)
                         .font(Font(Interface.Fonts.medium.withSize(Interface.Fonts.Sizes.hint)))
                         .offset(x: 5, y: 0)

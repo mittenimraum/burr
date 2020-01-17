@@ -17,6 +17,10 @@ extension Interface {
             struct Regular {
                 static let leading: CGFloat = 6
             }
+
+            struct Medium {
+                static let leading: CGFloat = 3
+            }
         }
 
         struct General {
