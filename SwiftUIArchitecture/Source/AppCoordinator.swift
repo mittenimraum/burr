@@ -29,7 +29,6 @@ class AppCoordinator {
 
         initializeStyling()
         initializeRecorder()
-        initializeDefaults()
     }
 
     private func initializeStyling() {
@@ -38,11 +37,5 @@ class AppCoordinator {
 
     private func initializeRecorder() {
         recorder.observe(store)
-    }
-
-    private func initializeDefaults() {
-        let hashtags = Domain.accountService.hashtags ?? []
-        store.dispatch(AppAction.setHashtags(hashtags))
-        store.dispatch(RouteAction.setPath(hashtags.isEmpty ? .onboarding : .feed))
     }
 }

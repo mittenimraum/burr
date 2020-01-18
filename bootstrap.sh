@@ -4,6 +4,10 @@
 # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 #
 
+echo "Removing previous installation..."
+rm -f -R .build
+
+echo "Trying to update brew..."
 if which brew >/dev/null; then
   brew update
 else
@@ -20,7 +24,9 @@ function install_current {
 
 if [ -e "Mintfile" ]; then
   install_current mint
+  # install linters, formatters, ...
   mint bootstrap --mintfile Mintfile
 fi
 
+# install github hooks
 swift run komondor install

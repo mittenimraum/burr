@@ -49,12 +49,12 @@ class AccountService {
 // MARK: - Accountable
 
 protocol Accountable {
-    var accountService: AccountService { get }
+    var account: AccountService { get }
 }
 
 extension Accountable {
-    var accountService: AccountService {
-        return Domain.accountService
+    var account: AccountService {
+        return Domain.account
     }
 }
 

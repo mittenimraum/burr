@@ -8,6 +8,8 @@
 
 import SwiftUIRouter
 
+// MARK: - AppState
+
 struct AppState: Equatable, Codable {
     // MARK: - States
 
@@ -18,4 +20,11 @@ struct AppState: Equatable, Codable {
 
     var hashtags: [String] = []
     var selected: Int = 0
+
+    // MARK: - Init
+
+    init(_ value: [String]? = nil) {
+        hashtags = value ?? []
+        route.path = hashtags.isEmpty ? .onboarding : .feed
+    }
 }

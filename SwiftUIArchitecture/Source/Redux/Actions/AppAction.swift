@@ -20,14 +20,14 @@ enum AppAction: Reducable, Accountable {
                 state.selected = index
             }
         case let .selectHashtag(hashtag):
-            guard let index = accountService.hashtags?.firstIndex(of: hashtag) else {
+            guard let index = account.hashtags?.firstIndex(of: hashtag) else {
                 return
             }
             store.reduce { state in
                 state.selected = index
             }
         case let .removeHashtag(hashtag):
-            let hashtags = accountService.remove(hashtag: hashtag)
+            let hashtags = account.remove(hashtag: hashtag)
 
             store.reduce { state in
                 // Workaround for a SwiftUI crash:
@@ -53,13 +53,13 @@ enum AppAction: Reducable, Accountable {
                 }
             }
         case let .addHashtag(hashtag):
-            let hashtags = accountService.add(hashtag: hashtag)
+            let hashtags = account.add(hashtag: hashtag)
 
             store.reduce { state in
                 state.hashtags = hashtags
             }
         case let .setHashtags(hashtags):
-            accountService.hashtags = hashtags
+            account.hashtags = hashtags
 
             store.reduce { state in
                 state.hashtags = hashtags

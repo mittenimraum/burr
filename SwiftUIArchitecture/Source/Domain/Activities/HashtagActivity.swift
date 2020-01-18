@@ -69,7 +69,7 @@ struct HashtagActivityItem {
     var isUnique: Bool {
         guard
             let hashtag = strippedHashtag?.lowercased(),
-            let hashtags = Domain.accountService.hashtags else {
+            let hashtags = Domain.account.hashtags else {
             return false
         }
         return hashtags.map { $0.lowercased() }.contains(hashtag) == false
