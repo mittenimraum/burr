@@ -36,15 +36,9 @@ extension UIView {
 
 extension UIView {
     func scrollToTop() {
-        var navigationBarHeight: CGFloat = 44
-
         for child in subviews {
-            if let navigationBar = child as? UINavigationBar {
-                navigationBarHeight = navigationBar.frame.size.height
-            }
-            if let scrollView = child as? UIScrollView,
-                scrollView.contentOffset.y > navigationBarHeight {
-                scrollView.scrollRectToVisible(CGRect(x: 0, y: -navigationBarHeight, width: 1, height: 1), animated: true)
+            if let scrollView = child as? UIScrollView {
+                scrollView.scrollRectToVisible(CGRect(x: 0, y: -1, width: 1, height: 1), animated: false)
             }
             child.scrollToTop()
         }
